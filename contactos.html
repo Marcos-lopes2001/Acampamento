@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acampamento RHUMA MINA 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           ACAMPAMENTO RHUMA MINA - CSS COMPLETO
+           CORES: AMARELO #ffae49 | VERDE #3ebd76
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3ebd76;
+            --primary-dark: #2d9d5e;
+            --primary-light: #6dd49a;
+            --primary-bg: #e8f9f0;
+            --secondary: #ffae49;
+            --secondary-light: #ffd699;
+            --text-dark: #1a202c;
+            --text-light: #4a5568;
+            --white: #ffffff;
+            --gray-bg: #f7fafc;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fafbfc;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--white);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+            box-shadow: 0 2px 10px rgba(62, 189, 118, 0.15);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            display: block;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            background: var(--white);
+            padding: 2px;
+        }
+
+        .titulo-logo .pequeno {
+            font-size: 10px;
+            opacity: 0.7;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .titulo-logo h1 {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 2px 0;
+            color: var(--primary);
+        }
+
+        .titulo-logo .subtitulo {
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-list a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-list a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-list a:hover::after,
+        .nav-list a.active::after {
+            width: 100%;
+        }
+
+        .nav-list a:hover,
+        .nav-list a.active {
+            color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-bg) 0%, #ffffff 100%);
+            padding: 80px 0 60px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-texto h2 {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .hero-texto h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .hero-texto .lema {
+            font-size: 22px;
+            font-style: italic;
+            padding: 16px 20px;
+            background: rgba(62, 189, 118, 0.08);
+            border-left: 4px solid var(--secondary);
+            margin-bottom: 24px;
+            color: var(--text-dark);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .hero-texto .versiculo {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            padding: 12px 20px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .hero-texto .versiculo strong {
+            color: var(--primary);
+        }
+
+        .hero-info {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .hero-botoes {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(62, 189, 118, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* SECTION HEADER */
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        /* CONTEXTUALIZAÇÃO */
+        .contexto {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .contexto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .contexto-texto h2 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .contexto-texto p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .contexto-texto blockquote {
+            font-size: 20px;
+            font-style: italic;
+            color: var(--primary);
+            padding: 20px 24px;
+            border-left: 4px solid var(--secondary);
+            background: var(--primary-bg);
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contexto-imagem {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-destaque-contexto {
+            background: var(--primary-bg);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(62, 189, 118, 0.2);
+            transition: all 0.3s;
+        }
+
+        .card-destaque-contexto:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--secondary);
+        }
+
+        .numero-destaque {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--secondary);
+            display: block;
+            line-height: 1;
+        }
+
+        .card-destaque-contexto p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* RESULTADOS ESPERADOS */
+        .resultados {
+            padding: 80px 0;
+            background: var(--gray-bg);
+        }
+
+        .resultados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .resultado-card {
+            background: var(--white);
+            padding: 30px 24px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .resultado-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
+        }
+
+        .resultado-numero {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--secondary);
+            background: #fef3c7;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 16px auto;
+            text-align: center;
+            display: block;
+        }
+
+        .resultado-card h3 {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.5;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* ESTRUTURA ORGANIZACIONAL */
+        .estrutura {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .estrutura-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .estrutura-card {
+            background: var(--primary-bg);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(62, 189, 118, 0.15);
+            transition: all 0.3s;
+        }
+
+        .estrutura-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--secondary);
+        }
+
+        .estrutura-card .estrutura-icon {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .estrutura-card h4 {
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        /* CONTACTOS */
+        .contactos {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .contactos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .contacto-card {
+            background: var(--primary-bg);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(62, 189, 118, 0.15);
+        }
+
+        .contacto-card .contacto-icon {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .contacto-card h4 {
+            font-size: 14px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contacto-card .nome {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 4px 0;
+        }
+
+        .contacto-card .telefone {
+            font-size: 16px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 48px 0 24px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .logo-footer {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            display: block;
+            border-radius: 50%;
+            border: 2px solid var(--secondary);
+        }
+
+        .footer-logo h3 {
+            font-size: 16px;
+            color: var(--white);
+        }
+
+        .footer-logo p {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            opacity: 0.7;
+            line-height: 1.6;
+            font-style: italic;
+            color: #a0aec0;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 16px;
+            color: var(--secondary);
+            font-size: 16px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            opacity: 0.8;
+            color: #cbd5e0;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 8px;
+            color: #a0aec0;
+        }
+
+        .lema-footer {
+            color: var(--secondary);
+            font-style: italic;
+            font-size: 14px !important;
+            opacity: 1 !important;
+        }
+
+        /* ANIMAÇÕES */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+
+        /* RESPONSIVO */
+        @media (max-width: 1024px) {
+            .estrutura-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .nav-list.active {
+                display: flex;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-texto h2 {
+                font-size: 32px;
+            }
+            
+            .hero-texto h3 {
+                font-size: 24px;
+            }
+            
+            .contexto-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .contexto-imagem {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .contactos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .estrutura-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-texto .lema {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-texto h2 {
+                font-size: 26px;
+            }
+            
+            .hero-texto h3 {
+                font-size: 20px;
+            }
+            
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            .contexto-texto h2 {
+                font-size: 24px;
+            }
+            
+            .contexto-imagem {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-area">
+                <div class="emblema">
+                    <img src="assets/images/logo.jpeg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/80x80?text=RHUMA'">
+                </div>
+                <div class="titulo-logo">
+                    <span class="pequeno">JNI · Distrito de Maputo</span>
+                    <h1>Acampamento RHUMA MINA</h1>
+                    <span class="subtitulo">#CAMP_DoisMil26</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html" class="active">Início</a></li>
+                    <li><a href="atividades.html" class="active">Atividades</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="estrutura.html">Estrutura</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-texto fade-up">
+                        <span class="hero-tag">Acampamento 2026</span>
+                        <h2>RHUMA MINA</h2>
+                        <h3>16 a 20 de Dezembro · Namaacha</h3>
+                        <p class="lema">"Eis-me aqui, envia-me a mim"</p>
+                        <div class="versiculo">
+                            <strong>Isaías 6:8</strong> — "Depois disso, ouvi a voz do Senhor, que dizia: A quem enviarei, e quem há de ir por nós? Então, disse eu: eis-me aqui, envia-me a mim."
+                        </div>
+                        <div class="hero-info">
+                            <div class="info-item"> 16 a 20 de Dezembro de 2026</div>
+                            <div class="info-item"> Igreja de Macuacua - Namaacha</div>
+                            <div class="info-item"> 200 Jovens</div>
+                        </div>
+                        <div class="hero-botoes">
+                            <a href="sobre.html" class="btn btn-primary">Saber Mais</a>
+                            <a href="contactos.html" class="btn btn-secondary">Contactos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contextualização -->
+        <section class="contexto">
+            <div class="container">
+                <div class="contexto-grid">
+                    <div class="contexto-texto fade-left">
+                        <span class="section-tag">Contextualização</span>
+                        <h2>O que é o Acampamento RHUMA MINA?</h2>
+                        <p>O <strong>Acampamento Distrital da Juventude de Maputo</strong> é um evento anual que reúne jovens do distrito para um momento de <strong>transformação espiritual, crescimento pessoal e comunhão</strong>.</p>
+                        <p>O tema <strong>"RHUMA MINA"</strong> representa a disponibilidade diante de Deus, o chamado ao serviço e a entrega total da juventude para a obra do Senhor.</p>
+                        <blockquote>"RHUMA MINA" — Eis-me aqui, envia-me a mim.</blockquote>
+                        <p>Este acampamento será um espaço de <strong>transformação espiritual profunda</strong>, onde os jovens serão desafiados a assumir o seu papel na igreja e na sociedade.</p>
+                    </div>
+                    <div class="contexto-imagem fade-right">
+                        <div class="card-destaque-contexto">
+                            <span class="numero-destaque">200+</span>
+                            <p>Jovens Participantes</p>
+                        </div>
+                        <div class="card-destaque-contexto">
+                            <span class="numero-destaque">5</span>
+                            <p>Dias de Acampamento</p>
+                        </div>
+                        <div class="card-destaque-contexto">
+                            <span class="numero-destaque">6</span>
+                            <p>Comissões Organizacionais</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resultados Esperados -->
+        <section class="resultados">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <span class="section-tag">Metas</span>
+                    <h2>Resultados Esperados</h2>
+                    <p>O que pretendemos alcançar com o Acampamento RHUMA MINA 2026</p>
+                </div>
+                <div class="resultados-grid">
+                    <div class="resultado-card fade-up">
+                        <div class="resultado-numero">01</div>
+                        <h3>Jovens comprometidos com o chamado de Deus</h3>
+                    </div>
+                    <div class="resultado-card fade-up delay-1">
+                        <div class="resultado-numero">02</div>
+                        <h3>Fortalecimento espiritual coletivo</h3>
+                    </div>
+                    <div class="resultado-card fade-up delay-2">
+                        <div class="resultado-numero">03</div>
+                        <h3>Formação de líderes ativos</h3>
+                    </div>
+                    <div class="resultado-card fade-up delay-3">
+                        <div class="resultado-numero">04</div>
+                        <h3>Impacto positivo nas igrejas e comunidades</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estrutura Organizacional -->
+        <section class="estrutura">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <span class="section-tag">Equipa</span>
+                    <h2>Estrutura Organizacional</h2>
+                    <p>Conheça as comissões que fazem o acampamento acontecer</p>
+                </div>
+                <div class="estrutura-grid">
+                    <div class="estrutura-card fade-up">
+                        <span class="estrutura-icon"></span>
+                        <h4>Coordenação Geral</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-1">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Evangelismo</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-2">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Logística</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-3">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Alimentação</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-4">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Segurança</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-5">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Finanças</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-6">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Comunicação</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.jpeg" alt="Logo" class="logo-footer" onerror="this.src='https://via.placeholder.com/50x50?text=RHUMA'">
+                        <div>
+                            <h3>Acampamento RHUMA MINA</h3>
+                            <p>JNI · Distrito de Maputo</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaías 6:8</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h4>Navegação</h4>
+                        <ul>
+                            <li><a href="index.html">Início</a></li>
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="estrutura.html">Estrutura</a></li>
+                            <li><a href="contactos.html">Contactos</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Evento</h4>
+                        <ul>
+                            <li>16 a 20 de Dezembro de 2026</li>
+                            <li>Igreja de Macuacua - Namaacha</li>
+                            <li>#CAMP_DoisMil26</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Contactos</h4>
+                        <ul>
+                            <li>Arlindo Cumbane: 87 513 9380</li>
+                            <li>Mauro Mbanze: 84 204 8782</li>
+                            <li>Edson Cau: 84 513 2991</li>
+                            <li>Lourino Langa: 86 260 0363</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Acampamento RHUMA MINA · JNI Distrito de Maputo</p>
+                <p class="lema-footer">"Eis-me aqui, envia-me a mim"</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile
+        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        var navList = document.getElementById('navList');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navList.classList.toggle('active');
+            });
+        }
+
+        var navLinks = document.querySelectorAll('.nav-list a');
+        for (var i = 0; i < navLinks.length; i++) {
+            navLinks[i].addEventListener('click', function() {
+                navList.classList.remove('active');
+            });
+        }
+
+        // Animações
+        var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(function(el) {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

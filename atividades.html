@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades - Acampamento RHUMA MINA 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           ATIVIDADES - ACAMPAMENTO RHUMA MINA
+           CORES: VERDE #3ebd76 | AMARELO #ffae49
+           ============================================ */
+        :root {
+            --primary: #3ebd76;
+            --primary-dark: #2d9d5e;
+            --primary-light: #6dd49a;
+            --primary-bg: #e8f9f0;
+            --secondary: #ffae49;
+            --secondary-light: #ffd699;
+            --text-dark: #1a202c;
+            --text-light: #4a5568;
+            --white: #ffffff;
+            --gray-bg: #f7fafc;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fafbfc;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--white);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+            box-shadow: 0 2px 10px rgba(62, 189, 118, 0.15);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            display: block;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            background: var(--white);
+            padding: 2px;
+        }
+
+        .titulo-logo .pequeno {
+            font-size: 10px;
+            opacity: 0.7;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .titulo-logo h1 {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 2px 0;
+            color: var(--primary);
+        }
+
+        .titulo-logo .subtitulo {
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-list a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-list a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-list a:hover::after,
+        .nav-list a.active::after {
+            width: 100%;
+        }
+
+        .nav-list a:hover,
+        .nav-list a.active {
+            color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-bg) 0%, #ffffff 100%);
+            padding: 60px 0 40px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .page-header h1 {
+            font-size: 40px;
+            color: #1a202c;
+        }
+
+        .page-header p {
+            color: #4a5568;
+            margin-top: 8px;
+            font-size: 18px;
+        }
+
+        /* PACOTES */
+        .pacotes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .pacote-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .pacote-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-color: var(--secondary);
+        }
+
+        .pacote-header {
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .pacote-header.pacote-lite {
+            background: linear-gradient(135deg, #52b788, #2d6a4f);
+        }
+
+        .pacote-header.pacote-plus {
+            background: linear-gradient(135deg, #4299e1, #2b6cb0);
+        }
+
+        .pacote-header.pacote-max {
+            background: linear-gradient(135deg, #ed8936, #c05621);
+        }
+
+        .pacote-header .pacote-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .pacote-header h2 {
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .pacote-header .pacote-sub {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        .pacote-body {
+            padding: 24px;
+        }
+
+        .pacote-body .atividade-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pacote-body .atividade-item:last-child {
+            border-bottom: none;
+        }
+
+        .pacote-body .atividade-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            width: 32px;
+            text-align: center;
+        }
+
+        .pacote-body .atividade-info h4 {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .pacote-body .atividade-info p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 2px;
+            line-height: 1.5;
+        }
+
+        .pacote-badge {
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 16px;
+        }
+
+        .pacote-badge.lite {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .pacote-badge.plus {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .pacote-badge.max {
+            background: #ffe5cc;
+            color: #7b3f00;
+        }
+
+        .pacote-footer {
+            padding: 16px 24px 24px;
+            text-align: center;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .pacote-footer .btn-inscrever {
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .pacote-footer .btn-inscrever.lite-btn {
+            background: #2d6a4f;
+        }
+
+        .pacote-footer .btn-inscrever.lite-btn:hover {
+            background: #1b4332;
+        }
+
+        .pacote-footer .btn-inscrever.plus-btn {
+            background: #2b6cb0;
+        }
+
+        .pacote-footer .btn-inscrever.plus-btn:hover {
+            background: #1a4f7a;
+        }
+
+        .pacote-footer .btn-inscrever.max-btn {
+            background: #c05621;
+        }
+
+        .pacote-footer .btn-inscrever.max-btn:hover {
+            background: #9b4a1a;
+        }
+
+        /* DESCRIÇÃO DOS PACOTES */
+        .pacote-descricao {
+            margin-top: 40px;
+            padding: 35px;
+            background: var(--primary-bg);
+            border-radius: 16px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .pacote-descricao h3 {
+            font-size: 22px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .pacote-descricao .pacote-resumo {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .pacote-descricao .resumo-item {
+            background: var(--white);
+            padding: 16px 20px;
+            border-radius: 12px;
+            border-left: 3px solid;
+        }
+
+        .pacote-descricao .resumo-item.lite-resumo {
+            border-color: #2d6a4f;
+        }
+
+        .pacote-descricao .resumo-item.plus-resumo {
+            border-color: #2b6cb0;
+        }
+
+        .pacote-descricao .resumo-item.max-resumo {
+            border-color: #c05621;
+        }
+
+        .pacote-descricao .resumo-item h4 {
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .pacote-descricao .resumo-item ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 6px;
+        }
+
+        .pacote-descricao .resumo-item ul li {
+            font-size: 13px;
+            color: var(--text-light);
+            padding: 2px 0;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .pacote-descricao .resumo-item ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 48px 0 24px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .logo-footer {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            display: block;
+            border-radius: 50%;
+            border: 2px solid var(--secondary);
+        }
+
+        .footer-logo h3 {
+            font-size: 16px;
+            color: var(--white);
+        }
+
+        .footer-logo p {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            opacity: 0.7;
+            line-height: 1.6;
+            font-style: italic;
+            color: #a0aec0;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 16px;
+            color: var(--secondary);
+            font-size: 16px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            opacity: 0.8;
+            color: #cbd5e0;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 8px;
+            color: #a0aec0;
+        }
+
+        .lema-footer {
+            color: var(--secondary);
+            font-style: italic;
+            font-size: 14px !important;
+            opacity: 1 !important;
+        }
+
+        /* ANIMAÇÕES */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* RESPONSIVO */
+        @media (max-width: 1024px) {
+            .pacotes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pacote-descricao .pacote-resumo {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-list.active {
+                display: flex;
+            }
+
+            .pacotes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .pacote-descricao .pacote-resumo {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pacote-header h2 {
+                font-size: 20px;
+            }
+            .pacote-body .atividade-info h4 {
+                font-size: 14px;
+            }
+            .pacote-body .atividade-info p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-area">
+                <div class="emblema">
+                    <img src="assets/images/logo.jpeg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/80x80?text=RHUMA'">
+                </div>
+                <div class="titulo-logo">
+                    <span class="pequeno">JNI · Distrito de Maputo</span>
+                    <h1>Acampamento RHUMA MINA</h1>
+                    <span class="subtitulo">#CAMP_DoisMil26</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="atividades.html" class="active">Atividades</a></li>
+                    <li><a href="estrutura.html">Estrutura</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1> Atividades do Acampamento</h1>
+                <p>Escolha o pacote que melhor se adapta à sua experiência</p>
+            </div>
+        </section>
+
+        <section class="atividades-page">
+            <div class="container">
+                <div class="pacotes-grid">
+                    <!-- PACOTE LITE -->
+                    <div class="pacote-card fade-up">
+                        <div class="pacote-header pacote-lite">
+                            <span class="pacote-icon"></span>
+                            <h2>Pacote Lite</h2>
+                            <span class="pacote-sub">Ideal para quem deseja viver a essência do acampamento</span>
+                        </div>
+                        <div class="pacote-body">
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Palestras</h4>
+                                    <p>Sessões com convidados abordando temas de liderança, fé, desenvolvimento pessoal e vida cristã.</p>
+                                </div>
+                            </div>
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Estudos Bíblicos</h4>
+                                    <p>Momentos de aprendizagem e reflexão sobre a Palavra de Deus, promovendo crescimento espiritual.</p>
+                                </div>
+                            </div>
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Cultos</h4>
+                                    <p>Períodos de adoração, louvor e mensagens inspiradoras para fortalecer a comunhão com Deus.</p>
+                                </div>
+                            </div>
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Jogos e Dinâmicas</h4>
+                                    <p>Atividades recreativas, competições saudáveis e desafios em equipa para promover integração e diversão.</p>
+                                </div>
+                            </div>
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Visita às Montanhas</h4>
+                                    <p>Caminhada em meio à natureza, proporcionando momentos de contemplação, oração e fortalecimento dos laços entre os participantes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pacote-footer">
+                            <span class="pacote-badge lite"> Pacote Base</span>
+                        </div>
+                    </div>
+
+                    <!-- PACOTE PLUS -->
+                    <div class="pacote-card fade-up delay-1">
+                        <div class="pacote-header pacote-plus">
+                            <span class="pacote-icon"></span>
+                            <h2>Pacote Plus</h2>
+                            <span class="pacote-sub">Tudo o que está incluído no Pacote Lite, mais:</span>
+                        </div>
+                        <div class="pacote-body">
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Pacote Lite</h4>
+                                    <p>Todas as atividades do pacote base incluídas.</p>
+                                </div>
+                            </div>
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Visita a Mbuzine</h4>
+                                    <p>Passeio para conhecer um dos locais históricos e culturais da região, proporcionando uma experiência enriquecedora.</p>
+                                </div>
+                            </div>
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Visita às Cascatas</h4>
+                                    <p>Momento de lazer em contacto com a natureza, com paisagens deslumbrantes e ambiente ideal para descanso e fotografias.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pacote-footer">
+                            <span class="pacote-badge plus"> Pacote Intermédio</span>
+                        </div>
+                    </div>
+
+                    <!-- PACOTE MÁX -->
+                    <div class="pacote-card fade-up delay-2">
+                        <div class="pacote-header pacote-max">
+                            <span class="pacote-icon"></span>
+                            <h2>Pacote Max</h2>
+                            <span class="pacote-sub">Inclui todos os benefícios do Pacote Lite e do Pacote Plus, além de:</span>
+                        </div>
+                        <div class="pacote-body">
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Pacote Lite</h4>
+                                    <p>Todas as atividades do pacote base incluídas.</p>
+                                </div>
+                            </div>
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Visita a Mbuzine</h4>
+                                    <p>Passeio para conhecer um dos locais históricos e culturais da região.</p>
+                                </div>
+                            </div>
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Visita às Cascatas</h4>
+                                    <p>Momento de lazer em contacto com a natureza, com paisagens deslumbrantes.</p>
+                                </div>
+                            </div>
+                            <div class="atividade-item">
+                                <span class="atividade-icon"></span>
+                                <div class="atividade-info">
+                                    <h4>Visita ao Zoológico</h4>
+                                    <p>Uma experiência educativa e recreativa para conhecer diversas espécies de animais e promover a consciência ambiental.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pacote-footer">
+                            <span class="pacote-badge max"> Pacote Completo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESUMO DOS PACOTES -->
+                <div class="pacote-descricao fade-up">
+                    <h3> Resumo dos Pacotes</h3>
+                    <div class="pacote-resumo">
+                        <div class="resumo-item lite-resumo">
+                            <h4> Pacote Lite</h4>
+                            <ul>
+                                <li>Palestras</li>
+                                <li>Estudos Bíblicos</li>
+                                <li>Cultos</li>
+                                <li>Jogos e Dinâmicas</li>
+                                <li>Visita às Montanhas</li>
+                            </ul>
+                        </div>
+                        <div class="resumo-item plus-resumo">
+                            <h4> Pacote Plus</h4>
+                            <ul>
+                                <li>Tudo do Pacote Lite</li>
+                                <li>Visita a Mbuzine</li>
+                                <li>Visita às Cascatas</li>
+                            </ul>
+                        </div>
+                        <div class="resumo-item max-resumo">
+                            <h4> Pacote Max</h4>
+                            <ul>
+                                <li>Tudo do Pacote Lite e Plus</li>
+                                <li>Visita ao Zoológico</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.jpeg" alt="Logo" class="logo-footer" onerror="this.src='https://via.placeholder.com/50x50?text=RHUMA'">
+                        <div>
+                            <h3>Acampamento RHUMA MINA</h3>
+                            <p>JNI · Distrito de Maputo</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaías 6:8</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h4>Navegação</h4>
+                        <ul>
+                            <li><a href="index.html">Início</a></li>
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="atividades.html">Atividades</a></li>
+                            <li><a href="estrutura.html">Estrutura</a></li>
+                            <li><a href="contactos.html">Contactos</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Evento</h4>
+                        <ul>
+                            <li>16 a 20 de Dezembro de 2026</li>
+                            <li>Igreja de Macuacua - Namaacha</li>
+                            <li>#CAMP_DoisMil26</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Contactos</h4>
+                        <ul>
+                            <li>Arlindo Cumbane: 87 513 9380</li>
+                            <li>Mauro Mbanze: 84 204 8782</li>
+                            <li>Edson Cau: 84 513 2991</li>
+                            <li>Lourino Langa: 86 260 0363</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Acampamento RHUMA MINA · JNI Distrito de Maputo</p>
+                <p class="lema-footer">"Eis-me aqui, envia-me a mim"</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile
+        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        var navList = document.getElementById('navList');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navList.classList.toggle('active');
+            });
+        }
+
+        var navLinks = document.querySelectorAll('.nav-list a');
+        for (var i = 0; i < navLinks.length; i++) {
+            navLinks[i].addEventListener('click', function() {
+                navList.classList.remove('active');
+            });
+        }
+
+        // Animações
+        var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(function(el) {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
