@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estrutura - Acampamento RHUMA MINA 2026</title>
+    <title>Locais - Acampamento RHUMA MINA 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* ============================================
-           ESTRUTURA - ACAMPAMENTO RHUMA MINA
-           CORES: VERDE #3ebd76 | AMARELO #ffae49
-           ============================================ */
         :root {
             --primary: #3ebd76;
             --primary-dark: #2d9d5e;
@@ -43,7 +39,6 @@
             padding: 0 32px;
         }
 
-        /* HEADER */
         .header {
             background: var(--white);
             padding: 16px 0;
@@ -144,7 +139,6 @@
             cursor: pointer;
         }
 
-        /* PAGE HEADER */
         .page-header {
             background: linear-gradient(135deg, var(--primary-bg) 0%, #ffffff 100%);
             padding: 60px 0 40px;
@@ -163,88 +157,90 @@
             font-size: 18px;
         }
 
-        /* ESTRUTURA */
-        .estrutura-page {
+        .locais-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
             padding: 40px 0 60px;
         }
 
-        .coordenacao {
-            background: var(--primary);
-            color: white;
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .coordenacao h3 {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-
-        .coordenacao p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .coordenacao .coordenacao-icon {
-            font-size: 40px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .comissao-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .comissao-card {
+        .local-card {
             background: var(--white);
-            padding: 30px 24px;
             border-radius: 16px;
-            text-align: center;
+            overflow: hidden;
             box-shadow: var(--shadow);
             border: 1px solid #e2e8f0;
             transition: all 0.3s;
         }
 
-        .comissao-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .local-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
             border-color: var(--secondary);
         }
 
-        .comissao-card .comissao-icon {
-            font-size: 48px;
-            display: block;
-            margin-bottom: 12px;
+        .local-card .imagem {
+            width: 100%;
+            height: 200px;
+            background: var(--primary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--primary);
         }
 
-        .comissao-card h3 {
-            font-size: 18px;
+        .local-card .info {
+            padding: 20px;
+        }
+
+        .local-card .info h3 {
+            font-size: 20px;
             color: var(--text-dark);
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
-        .comissao-card p {
+        .local-card .info .localizacao {
             font-size: 13px;
             color: var(--text-light);
+            margin-bottom: 10px;
         }
 
-        .comissao-card .responsavel {
+        .local-card .info p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .local-card .info .tag {
             display: inline-block;
-            background: var(--primary-bg);
-            color: var(--secondary);
             padding: 4px 12px;
             border-radius: 12px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
-        /* FOOTER */
+        .local-card .info .tag.natureza {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .local-card .info .tag.cultura {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .local-card .info .tag.aventura {
+            background: #ffe5cc;
+            color: #7b3f00;
+        }
+
+        .local-card .info .tag.espiritual {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
         .footer {
             background: #1a202c;
             color: #e2e8f0;
@@ -345,7 +341,13 @@
             opacity: 1 !important;
         }
 
-        /* ANIMAÇÕES */
+        .footer-bottom .dev {
+            margin-top: 10px;
+            font-size: 12px;
+            opacity: 0.5;
+            color: #a0aec0;
+        }
+
         .fade-up {
             opacity: 0;
             transform: translateY(40px);
@@ -362,9 +364,13 @@
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.4s; }
         .delay-5 { transition-delay: 0.5s; }
-        .delay-6 { transition-delay: 0.6s; }
 
-        /* RESPONSIVO */
+        @media (max-width: 1024px) {
+            .locais-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
@@ -392,18 +398,22 @@
                 display: flex;
             }
 
-            .comissao-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .comissao-grid {
+            .locais-grid {
                 grid-template-columns: 1fr;
             }
 
             .page-header h1 {
                 font-size: 28px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
         }
     </style>
@@ -439,60 +449,78 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1>Estrutura Organizacional</h1>
-                <p>Conheça as comissões que fazem o acampamento acontecer</p>
+                <h1> Locais a Visitar</h1>
+                <p>Conheça os lugares incríveis que vamos explorar durante o acampamento</p>
             </div>
         </section>
 
-        <section class="estrutura-page">
+        <section class="locais-section">
             <div class="container">
-                <div class="coordenacao fade-up">
-                    <span class="coordenacao-icon"></span>
-                    <h3>Coordenação Geral</h3>
-                    <p>Responsável por coordenar todas as atividades e comissões do acampamento</p>
-                </div>
-
-                <div class="comissao-grid">
-                    <div class="comissao-card fade-up">
-                        <span class="comissao-icon"></span>
-                        <h3>Comissão de Evangelismo</h3>
-                        <p>Responsável pelas atividades evangelísticas e alcance de almas</p>
-                        <span class="responsavel">Responsável: A definir</span>
+                <div class="locais-grid">
+                    <!-- Igreja de Macuacua -->
+                    <div class="local-card fade-up">
+                        <div class="imagem"></div>
+                        <div class="info">
+                            <h3>Igreja do Nazareno</h3>
+                            <div class="localizacao"> Namaacha, Província de Maputo</div>
+                            <p>O ponto de partida do acampamento. Uma igreja acolhedora que servirá como base para todas as atividades. Aqui realizaremos os cultos, palestras e momentos de comunhão.</p>
+                            <span class="tag espiritual">Espiritual</span>
+                        </div>
                     </div>
 
-                    <div class="comissao-card fade-up delay-1">
-                        <span class="comissao-icon"></span>
-                        <h3>Comissão de Logística</h3>
-                        <p>Responsável pelo transporte, montagem e organização do espaço</p>
-                        <span class="responsavel">Responsável: A definir</span>
+                    <!-- Montanhas de Namaacha -->
+                    <div class="local-card fade-up delay-1">
+                        <div class="imagem"></div>
+                        <div class="info">
+                            <h3>Montanhas de Namaacha</h3>
+                            <div class="localizacao"> Namaacha, Província de Maputo</div>
+                            <p>Uma caminhada em meio à natureza, com vistas deslumbrantes da região. Ideal para momentos de contemplação, oração e fortalecimento espiritual em grupo.</p>
+                            <span class="tag natureza">Natureza</span>
+                        </div>
                     </div>
 
-                    <div class="comissao-card fade-up delay-2">
-                        <span class="comissao-icon"></span>
-                        <h3>Comissão de Alimentação</h3>
-                        <p>Responsável pelo planeamento e preparação das refeições</p>
-                        <span class="responsavel">Responsável: A definir</span>
+                    <!-- Cascatas -->
+                    <div class="local-card fade-up delay-2">
+                        <div class="imagem">💦</div>
+                        <div class="info">
+                            <h3>Cascatas de Namaacha</h3>
+                            <div class="localizacao"> Namaacha, Província de Maputo</div>
+                            <p>Um dos pontos mais bonitos da região, com águas cristalinas que convidam ao banho e à contemplação. Local perfeito para descanso e renovação das forças.</p>
+                            <span class="tag natureza">Natureza</span>
+                        </div>
                     </div>
 
-                    <div class="comissao-card fade-up delay-3">
-                        <span class="comissao-icon"></span>
-                        <h3>Comissão de Segurança</h3>
-                        <p>Responsável pela segurança e bem-estar dos participantes</p>
-                        <span class="responsavel">Responsável: A definir</span>
+                    <!-- Mbuzine -->
+                    <div class="local-card fade-up delay-3">
+                        <div class="imagem"></div>
+                        <div class="info">
+                            <h3>Mbuzine</h3>
+                            <div class="localizacao"> Distrito de Namaacha</div>
+                            <p>Um local histórico e cultural que conta a história da região. Visita guiada para conhecer as tradições e a cultura local, enriquecendo a experiência dos participantes.</p>
+                            <span class="tag cultura">Cultura</span>
+                        </div>
                     </div>
 
-                    <div class="comissao-card fade-up delay-4">
-                        <span class="comissao-icon"></span>
-                        <h3>Comissão de Finanças</h3>
-                        <p>Responsável pela gestão financeira e captação de recursos</p>
-                        <span class="responsavel">Responsável: A definir</span>
+                    <!-- Zoológico -->
+                    <div class="local-card fade-up delay-4">
+                        <div class="imagem"></div>
+                        <div class="info">
+                            <h3>Zoológico de Maputo</h3>
+                            <div class="localizacao"> Maputo</div>
+                            <p>Uma experiência educativa e recreativa para conhecer diversas espécies de animais. Promove a consciência ambiental e o respeito pela vida selvagem.</p>
+                            <span class="tag aventura">Aventura</span>
+                        </div>
                     </div>
 
-                    <div class="comissao-card fade-up delay-5">
-                        <span class="comissao-icon"></span>
-                        <h3>Comissão de Comunicação</h3>
-                        <p>Responsável pela divulgação, redes sociais e registo fotográfico</p>
-                        <span class="responsavel">Responsável: A definir</span>
+                    <!-- Tenda do Acampamento -->
+                    <div class="local-card fade-up delay-5">
+                        <div class="imagem"></div>
+                        <div class="info">
+                            <h3>Tenda do Acampamento</h3>
+                            <div class="localizacao"> Igreja de Macuacua - Namaacha</div>
+                            <p>O coração do acampamento! A tenda será o espaço de convivência, onde acontecerão as dinâmicas, jogos e momentos de integração entre os participantes.</p>
+                            <span class="tag aventura">Aventura</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -518,14 +546,11 @@
                         <ul>
                             <li><a href="index.html">Início</a></li>
                             <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="atividades.html">Atividades</a></li>
+                            <li><a href="testemunhos.html">Testemunhos</a></li>
+                            <li><a href="locais.html">Locais</a></li>
                             <li><a href="estrutura.html">Estrutura</a></li>
                             <li><a href="contactos.html">Contactos</a></li>
-                        </ul>
-                        <h4>Redes Sociais</h4>
-                        <ul>
-                            <li><a href="https://www.instagram.com/jni_distrito_de_maputo?igsh=MW4zZWUwYmVlNW1xcA==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="https://www.facebook.com/share/19KG9htsmF/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                           
                         </ul>
                     </div>
                     <div>
@@ -544,38 +569,36 @@
                             <li>Edson Cau: 84 513 2991</li>
                             <li>Lourino Langa: 86 260 0363</li>
                         </ul>
+                         <h4>Redes Sociais</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/jni_distrito_de_maputo?igsh=MW4zZWUwYmVlNW1xcA==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/share/19KG9htsmF/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                           
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>© 2026 Acampamento RHUMA MINA · JNI Distrito de Maputo</p>
                 <p class="lema-footer">"Eis-me aqui, envia-me a mim"</p>
-                 <p style="margin-top: 10px; font-size: 12px; opacity: 0.5; color: #a0aec0;">
-                Desenvolvido por Marcos Lopes
-            </p>
+                <p class="dev">Desenvolvido por Marcos Lopes</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu Mobile
         var mobileMenuBtn = document.getElementById('mobileMenuBtn');
         var navList = document.getElementById('navList');
-
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', function() {
                 navList.classList.toggle('active');
             });
         }
-
-        var navLinks = document.querySelectorAll('.nav-list a');
-        for (var i = 0; i < navLinks.length; i++) {
-            navLinks[i].addEventListener('click', function() {
+        document.querySelectorAll('.nav-list a').forEach(function(link) {
+            link.addEventListener('click', function() {
                 navList.classList.remove('active');
             });
-        }
-
-        // Animações
+        });
         var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -584,7 +607,6 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.fade-up').forEach(function(el) {
             observer.observe(el);
         });
