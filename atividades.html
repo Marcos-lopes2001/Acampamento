@@ -228,11 +228,24 @@
             padding: 35px 40px;
         }
 
+        .pacote-descricao-intro {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-bg);
+        }
+
+        .pacote-descricao-intro strong {
+            color: var(--primary-dark);
+        }
+
         .pacote-body-unico .atividade-item {
             display: flex;
             align-items: flex-start;
             gap: 18px;
-            padding: 16px 0;
+            padding: 14px 0;
             border-bottom: 1px solid #f0f0f0;
             transition: all 0.3s;
         }
@@ -248,15 +261,15 @@
         }
 
         .pacote-body-unico .atividade-icon {
-            font-size: 28px;
+            font-size: 24px;
             flex-shrink: 0;
             margin-top: 2px;
-            width: 40px;
+            width: 36px;
             text-align: center;
         }
 
         .pacote-body-unico .atividade-info h4 {
-            font-size: 17px;
+            font-size: 16px;
             color: var(--text-dark);
             font-weight: 600;
         }
@@ -264,8 +277,22 @@
         .pacote-body-unico .atividade-info p {
             font-size: 14px;
             color: var(--text-light);
-            margin-top: 3px;
-            line-height: 1.6;
+            margin-top: 2px;
+            line-height: 1.5;
+        }
+
+        .pacote-valor-destaque {
+            background: var(--primary-bg);
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 16px;
+            border: 2px dashed var(--primary);
+        }
+
+        .pacote-valor-destaque strong {
+            font-size: 24px;
+            color: var(--primary-dark);
         }
 
         .pacote-badge-unico {
@@ -307,46 +334,12 @@
             transform: scale(0.95);
         }
 
-        /* INFORMAÇÕES ADICIONAIS */
-        .info-extra {
-            max-width: 900px;
-            margin: 40px auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .info-card {
-            background: var(--white);
-            padding: 24px;
-            border-radius: 16px;
+        .chamada-final {
             text-align: center;
-            box-shadow: var(--shadow);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s;
-        }
-
-        .info-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-        }
-
-        .info-card .info-icon {
-            font-size: 36px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .info-card h4 {
-            font-size: 16px;
-            color: var(--text-dark);
+            font-size: 18px;
             font-weight: 600;
-        }
-
-        .info-card p {
-            font-size: 13px;
-            color: var(--text-light);
-            margin-top: 4px;
+            color: var(--primary-dark);
+            margin-top: 10px;
         }
 
         /* FOOTER */
@@ -512,13 +505,17 @@
                 padding: 24px;
             }
 
+            .pacote-descricao-intro {
+                font-size: 15px;
+            }
+
             .pacote-body-unico .atividade-item {
                 padding: 12px 0;
             }
 
             .pacote-body-unico .atividade-icon {
-                font-size: 22px;
-                width: 32px;
+                font-size: 20px;
+                width: 30px;
             }
 
             .pacote-body-unico .atividade-info h4 {
@@ -537,12 +534,6 @@
                 padding: 14px 35px;
                 font-size: 16px;
                 width: 100%;
-            }
-
-            .info-extra {
-                grid-template-columns: 1fr;
-                gap: 16px;
-                padding: 0 20px;
             }
 
             .footer-content {
@@ -582,6 +573,11 @@
                 padding: 16px;
             }
 
+            .pacote-descricao-intro {
+                font-size: 14px;
+                padding-bottom: 16px;
+            }
+
             .pacote-body-unico .atividade-item {
                 padding: 10px 0;
                 gap: 12px;
@@ -589,7 +585,7 @@
 
             .pacote-body-unico .atividade-icon {
                 font-size: 18px;
-                width: 28px;
+                width: 26px;
             }
 
             .pacote-body-unico .atividade-info h4 {
@@ -600,17 +596,17 @@
                 font-size: 12px;
             }
 
+            .pacote-valor-destaque strong {
+                font-size: 20px;
+            }
+
             .btn-inscrever-unico {
                 font-size: 14px;
                 padding: 12px 20px;
             }
 
-            .info-card .info-icon {
-                font-size: 28px;
-            }
-
-            .info-card h4 {
-                font-size: 14px;
+            .chamada-final {
+                font-size: 15px;
             }
         }
     </style>
@@ -646,8 +642,8 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1>Atividades do Acampamento</h1>
-                <p>Um único pacote com todas as experiências que vais viver</p>
+                <h1> PACOTE ÚNICO — 1.700 MT</h1>
+                <p>Todas as atividades incluídas para uma experiência inesquecível</p>
             </div>
         </section>
 
@@ -658,12 +654,17 @@
                     <div class="pacote-header-unico">
                         <span class="pacote-icon"></span>
                         <h2>Pacote Completo RHUMA MINA</h2>
-                        <p class="pacote-sub">Todas as atividades incluídas para uma experiência inesquecível</p>
+                        <p class="pacote-sub">Tudo o que precisas para viver esta experiência única</p>
                         <div class="pacote-preco">
                             1.700 <small>MT</small>
                         </div>
                     </div>
                     <div class="pacote-body-unico">
+                        <div class="pacote-descricao-intro">
+                            <p>Preparamos um pacote completo, pensado para proporcionar uma experiência organizada, enriquecedora e inesquecível durante o acampamento.</p>
+                            <p style="margin-top: 8px;">Com uma programação diversificada, este pacote oferece momentos de comunhão, aprendizagem, diversão, lazer e crescimento espiritual, reunindo todas as atividades para que os participantes possam aproveitar ao máximo esta experiência.</p>
+                        </div>
+
                         <div class="atividade-item">
                             <span class="atividade-icon"></span>
                             <div class="atividade-info">
@@ -688,7 +689,7 @@
                         <div class="atividade-item">
                             <span class="atividade-icon"></span>
                             <div class="atividade-info">
-                                <h4>Jogos e Dinâmicas</h4>
+                                <h4>Jogos e Atividades Recreativas</h4>
                                 <p>Atividades recreativas, competições saudáveis e desafios em equipa para promover integração e diversão.</p>
                             </div>
                         </div>
@@ -720,31 +721,24 @@
                                 <p>Uma experiência educativa e recreativa para conhecer diversas espécies de animais como leões, girafas, zebras, búfalos, camelos, e promover a consciência ambiental.</p>
                             </div>
                         </div>
+
+                        <div class="pacote-valor-destaque">
+                            <p style="font-size: 16px; font-weight: 500; color: var(--text-dark);">
+                                VALOR DO PACOTE:
+                            </p>
+                            <strong>1.700 MT</strong>
+                        </div>
+
                         <div style="text-align: center; margin-top: 16px;">
                             <span class="pacote-badge-unico"> Inclui todas as atividades</span>
+                        </div>
+
+                        <div class="chamada-final">
+                            Junte-se a nós para dias inesquecíveis de comunhão, aprendizagem, diversão, aventura e crescimento espiritual!
                         </div>
                     </div>
                     <div class="pacote-footer-unico">
                         <a href="contactos.html" class="btn-inscrever-unico"> Inscrever-me Agora</a>
-                    </div>
-                </div>
-
-                <!-- INFORMAÇÕES ADICIONAIS -->
-                <div class="info-extra">
-                    <div class="info-card fade-up delay-1">
-                        <span class="info-icon"></span>
-                        <h4>Data</h4>
-                        <p>16 a 20 de Dezembro de 2026</p>
-                    </div>
-                    <div class="info-card fade-up delay-2">
-                        <span class="info-icon"></span>
-                        <h4>Local</h4>
-                        <p>Igreja de Macuacua - Namaacha</p>
-                    </div>
-                    <div class="info-card fade-up delay-3">
-                        <span class="info-icon"></span>
-                        <h4>Incluso</h4>
-                        <p>Alimentação, transporte local e todas as atividades</p>
                     </div>
                 </div>
             </div>
