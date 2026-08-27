@@ -1,12 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="pt-MZ">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locais - Acampamento RHUMA MINA 2026</title>
+    <title>Acampamento RHUMA MINA 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        /* ============================================
+           ACAMPAMENTO RHUMA MINA - CSS COMPLETO
+           CORES: AMARELO #ffae49 | VERDE #3ebd76
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary: #3ebd76;
             --primary-dark: #2d9d5e;
@@ -21,8 +30,6 @@
             --shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
@@ -30,7 +37,11 @@
             background-color: #fafbfc;
         }
 
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
 
         /* HEADER */
         .header {
@@ -88,10 +99,12 @@
             font-weight: 500;
         }
 
+        /* MENU SEMPRE VISÍVEL EM MOBILE */
         .nav-list {
             display: flex;
             list-style: none;
             gap: 32px;
+            flex-wrap: wrap;
         }
 
         .nav-list a {
@@ -115,128 +128,603 @@
         }
 
         .nav-list a:hover::after,
-        .nav-list a.active::after { width: 100%; }
-
-        .nav-list a:hover,
-        .nav-list a.active { color: var(--secondary); }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 24px;
-            cursor: pointer;
+        .nav-list a.active::after {
+            width: 100%;
         }
 
-        .page-header {
+        .nav-list a:hover,
+        .nav-list a.active {
+            color: var(--secondary);
+        }
+
+        /* REMOVER BOTÃO HAMBÚRGUER E DROPDOWN */
+        .mobile-menu-btn {
+            display: none !important;
+        }
+
+        /* HERO */
+        .hero {
             background: linear-gradient(135deg, var(--primary-bg) 0%, #ffffff 100%);
-            padding: 60px 0 40px;
-            text-align: center;
+            padding: 80px 0 60px;
             border-bottom: 2px solid var(--primary-light);
         }
 
-        .page-header h1 { font-size: 40px; color: #1a202c; }
-        .page-header p { color: #4a5568; margin-top: 8px; font-size: 18px; }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: center;
+        }
 
-        /* LOCAIS EM IMAGEM */
-        .locais-grid {
+        .hero-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-texto h2 {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .hero-texto h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .hero-texto .lema {
+            font-size: 22px;
+            font-style: italic;
+            padding: 16px 20px;
+            background: rgba(62, 189, 118, 0.08);
+            border-left: 4px solid var(--secondary);
+            margin-bottom: 24px;
+            color: var(--text-dark);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .hero-texto .versiculo {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            padding: 12px 20px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .hero-texto .versiculo strong {
+            color: var(--primary);
+        }
+
+        .hero-info {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .hero-botoes {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(62, 189, 118, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* SECTION HEADER */
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        /* CONTEXTUALIZAÇÃO */
+        .contexto {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .contexto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .contexto-texto h2 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .contexto-texto p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .contexto-texto blockquote {
+            font-size: 20px;
+            font-style: italic;
+            color: var(--primary);
+            padding: 20px 24px;
+            border-left: 4px solid var(--secondary);
+            background: var(--primary-bg);
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contexto-imagem {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-destaque-contexto {
+            background: var(--primary-bg);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(62, 189, 118, 0.2);
+            transition: all 0.3s;
+        }
+
+        .card-destaque-contexto:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--secondary);
+        }
+
+        .numero-destaque {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--secondary);
+            display: block;
+            line-height: 1;
+        }
+
+        .card-destaque-contexto p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* RESULTADOS ESPERADOS */
+        .resultados {
+            padding: 80px 0;
+            background: var(--gray-bg);
+        }
+
+        .resultados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .resultado-card {
+            background: var(--white);
+            padding: 30px 24px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .resultado-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
+        }
+
+        .resultado-numero {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--secondary);
+            background: #fef3c7;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 16px auto;
+            text-align: center;
+            display: block;
+        }
+
+        .resultado-card h3 {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.5;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* PRÉVIA DE ATIVIDADES */
+        .previa-section {
+            padding: 60px 0;
+            background: var(--white);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .previa-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            padding: 40px 0 60px;
         }
 
-        .local-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
+        .previa-card {
+            background: var(--primary-bg);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(62, 189, 118, 0.2);
+            transition: all 0.3s;
+        }
+
+        .previa-card:hover {
+            transform: translateY(-5px);
             box-shadow: var(--shadow);
-            transition: all 0.4s ease;
-            cursor: pointer;
+            border-color: var(--secondary);
+        }
+
+        .previa-card .previa-icon {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .previa-card h3 {
+            font-size: 20px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .previa-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .previa-card .previa-preco {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary);
+            margin: 12px 0;
+        }
+
+        .btn-ver-todos {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 10px 30px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-ver-todos:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        /* PRÉVIA DE LOCAIS */
+        .previa-local-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
             aspect-ratio: 4/3;
             background: var(--primary-bg);
+            box-shadow: var(--shadow);
+            transition: all 0.4s;
         }
 
-        .local-card:hover {
+        .previa-local-card:hover {
             transform: scale(1.03);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
-        .local-card .imagem {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .local-card .imagem img {
+        .previa-local-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            display: block;
         }
 
-        .local-card:hover .imagem img {
-            transform: scale(1.1);
-        }
-
-        .local-card .overlay {
+        .previa-local-card .overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 30px 24px 24px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
             color: var(--white);
-            transition: all 0.3s;
         }
 
-        .local-card .overlay h3 {
-            font-size: 22px;
+        .previa-local-card .overlay h4 {
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 4px;
         }
 
-        .local-card .overlay .localizacao {
+        .previa-local-card .overlay p {
             font-size: 13px;
-            opacity: 0.85;
-            margin-bottom: 8px;
+            opacity: 0.9;
         }
 
-        .local-card .overlay .tag {
+        .previa-local-card .overlay .tag {
             display: inline-block;
-            padding: 4px 14px;
-            border-radius: 20px;
+            padding: 2px 12px;
+            border-radius: 12px;
             font-size: 11px;
             font-weight: 600;
             background: rgba(255,255,255,0.2);
             backdrop-filter: blur(4px);
-            color: var(--white);
+            margin-top: 4px;
         }
 
-        .local-card .overlay .tag.natureza { background: rgba(62, 189, 118, 0.8); }
-        .local-card .overlay .tag.cultura { background: rgba(66, 153, 225, 0.8); }
-        .local-card .overlay .tag.aventura { background: rgba(237, 137, 54, 0.8); }
-        .local-card .overlay .tag.espiritual { background: rgba(220, 53, 69, 0.8); }
+        .previa-local-card .overlay .tag.natureza { background: rgba(62, 189, 118, 0.8); }
+        .previa-local-card .overlay .tag.cultura { background: rgba(66, 153, 225, 0.8); }
+        .previa-local-card .overlay .tag.aventura { background: rgba(237, 137, 54, 0.8); }
+        .previa-local-card .overlay .tag.espiritual { background: rgba(220, 53, 69, 0.8); }
 
-        .local-card .btn-ver-mais {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 20px;
-            background: var(--secondary);
-            color: var(--text-dark);
+        /* CARROSSEL */
+        .carrossel-section {
+            padding: 60px 0;
+            background: var(--gray-bg);
+        }
+
+        .carrossel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: #1a202c;
+        }
+
+        .carrossel-wrapper {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .carrossel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .carrossel-slide {
+            min-width: 100%;
+            position: relative;
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 769px) {
+            .carrossel-slide {
+                aspect-ratio: 16/9;
+            }
+        }
+
+        @media (max-width: 768px) and (min-width: 481px) {
+            .carrossel-slide {
+                aspect-ratio: 4/3;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carrossel-slide {
+                aspect-ratio: 1/1;
+            }
+        }
+
+        .carrossel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carrossel-legenda {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.5px;
+            z-index: 5;
+        }
+
+        .carrossel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: var(--white);
             border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 13px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 20px;
             cursor: pointer;
             transition: all 0.3s;
-            text-decoration: none;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .local-card .btn-ver-mais:hover {
+        .carrossel-btn:hover {
+            background: var(--primary);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .carrossel-btn.prev { left: 12px; }
+        .carrossel-btn.next { right: 12px; }
+
+        .carrossel-indicadores {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .indicador {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e0;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .indicador.active {
+            background: var(--primary);
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .carrossel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+            .carrossel-legenda {
+                font-size: 13px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carrossel-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+            .carrossel-btn.prev { left: 6px; }
+            .carrossel-btn.next { right: 6px; }
+            .carrossel-legenda {
+                font-size: 11px;
+                padding: 10px;
+            }
+        }
+
+        /* ESTRUTURA ORGANIZACIONAL */
+        .estrutura {
+            padding: 80px 0;
             background: var(--white);
-            transform: scale(1.05);
+        }
+
+        .estrutura-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .estrutura-card {
+            background: var(--primary-bg);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(62, 189, 118, 0.15);
+            transition: all 0.3s;
+        }
+
+        .estrutura-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--secondary);
+        }
+
+        .estrutura-card .estrutura-icon {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .estrutura-card h4 {
+            font-size: 14px;
+            color: var(--text-dark);
         }
 
         /* FOOTER */
@@ -267,11 +755,28 @@
             display: block;
             border-radius: 50%;
             border: 2px solid var(--secondary);
+            background: var(--white);
+            padding: 2px;
+            flex-shrink: 0;
         }
 
-        .footer-logo h3 { font-size: 16px; color: var(--white); }
-        .footer-logo p { font-size: 12px; opacity: 0.7; }
-        .footer-desc { font-size: 14px; opacity: 0.7; line-height: 1.6; font-style: italic; color: #a0aec0; }
+        .footer-logo h3 {
+            font-size: 16px;
+            color: var(--white);
+        }
+
+        .footer-logo p {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            opacity: 0.7;
+            line-height: 1.6;
+            font-style: italic;
+            color: #a0aec0;
+        }
 
         .footer-links {
             display: grid;
@@ -279,11 +784,32 @@
             gap: 32px;
         }
 
-        .footer-links h4 { margin-bottom: 16px; color: var(--secondary); font-size: 16px; }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 8px; font-size: 14px; opacity: 0.8; color: #cbd5e0; }
-        .footer-links a { color: #cbd5e0; text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--secondary); }
+        .footer-links h4 {
+            margin-bottom: 16px;
+            color: var(--secondary);
+            font-size: 16px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            opacity: 0.8;
+            color: #cbd5e0;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
 
         .footer-bottom {
             text-align: center;
@@ -291,61 +817,175 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .footer-bottom p { font-size: 12px; opacity: 0.7; margin-bottom: 8px; color: #a0aec0; }
-        .lema-footer { color: var(--secondary); font-style: italic; font-size: 14px !important; opacity: 1 !important; }
-        .footer-bottom .dev { margin-top: 10px; font-size: 12px; opacity: 0.5; color: #a0aec0; }
+        .footer-bottom p {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 8px;
+            color: #a0aec0;
+        }
 
+        .lema-footer {
+            color: var(--secondary);
+            font-style: italic;
+            font-size: 14px !important;
+            opacity: 1 !important;
+        }
+
+        /* ANIMAÇÕES */
         .fade-up {
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s ease-out;
         }
 
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.4s; }
         .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
 
+        /* RESPONSIVO */
         @media (max-width: 1024px) {
-            .locais-grid { grid-template-columns: repeat(2, 1fr); }
+            .estrutura-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .previa-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            .mobile-menu-btn { display: block; }
-            .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
+            .container {
+                padding: 0 20px;
+            }
+
+            /* Menu sempre visível em mobile */
+            .header .container {
                 flex-direction: column;
-                padding: 20px;
-                gap: 16px;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                align-items: stretch;
+                gap: 12px;
             }
-            .nav-list.active { display: flex; }
-            .locais-grid { 
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            .nav-list {
+                justify-content: center;
+                gap: 12px 16px;
+                flex-wrap: wrap;
+                padding: 8px 0;
+                border-top: 1px solid #e2e8f0;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .nav-list a {
+                font-size: 14px;
+                padding: 4px 0;
+            }
+
+            .hero-content {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
-            .local-card { aspect-ratio: 16/9; }
-            .page-header h1 { font-size: 28px; }
-            .footer-content { grid-template-columns: 1fr; gap: 32px; }
-            .footer-links { grid-template-columns: 1fr; gap: 24px; }
-            .local-card .overlay h3 { font-size: 18px; }
-            .local-card .overlay { padding: 20px 16px 16px; }
+
+            .hero-texto h2 {
+                font-size: 32px;
+            }
+
+            .hero-texto h3 {
+                font-size: 24px;
+            }
+
+            .contexto-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .contexto-imagem {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .estrutura-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-texto .lema {
+                font-size: 18px;
+            }
+
+            .previa-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
         }
 
         @media (max-width: 480px) {
-            .local-card { aspect-ratio: 4/3; }
-            .local-card .overlay h3 { font-size: 16px; }
-            .local-card .overlay .localizacao { font-size: 12px; }
-            .local-card .btn-ver-mais { font-size: 12px; padding: 6px 16px; }
+            .hero-texto h2 {
+                font-size: 26px;
+            }
+
+            .hero-texto h3 {
+                font-size: 20px;
+            }
+
+            .contexto-texto h2 {
+                font-size: 24px;
+            }
+
+            .contexto-imagem {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-list {
+                gap: 8px 12px;
+            }
+
+            .nav-list a {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -354,7 +994,7 @@
         <div class="container">
             <div class="logo-area">
                 <div class="emblema">
-                    <img src="assets/images/logo.jpeg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/80x80?text=RHUMA'">
+                    <img src="./assets/images/logo.jpeg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/80x80?text=RHUMA'">
                 </div>
                 <div class="titulo-logo">
                     <span class="pequeno">JNI · Distrito de Maputo</span>
@@ -363,110 +1003,317 @@
                 </div>
             </div>
             <nav class="nav">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <!-- SEM BOTÃO HAMBÚRGUER – MENU SEMPRE VISÍVEL -->
                 <ul class="nav-list" id="navList">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="atividades.html">Atividades</a></li>
-                    <li><a href="testemunhos.html">Testemunhos</a></li>
-                    <li><a href="locais.html" class="active">Locais</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="estrutura.html">Estrutura</a></li>
-                    <li><a href="contactos.html">Contactos</a></li>
+                    <li><a href="./index.html" class="active">Início</a></li>
+                    <li><a href="./atividades.html">Atividades</a></li>
+                    <li><a href="./testemunhos.html">Testemunhos</a></li>
+                    <li><a href="./locais.html">Locais</a></li>
+                    <li><a href="./sobre.html">Sobre</a></li>
+                    <li><a href="./estrutura.html">Estrutura</a></li>
+                    <li><a href="./contactos.html">Contactos</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="page-header">
+        <!-- 1. RHUMA MINA (Hero) -->
+        <section class="hero">
             <div class="container">
-                <h1> Locais a Visitar</h1>
-                <p>Conheça os lugares incríveis que vamos explorar durante o acampamento</p>
+                <div class="hero-content">
+                    <div class="hero-texto fade-up">
+                        <span class="hero-tag">Acampamento 2026</span>
+                        <h2>RHUMA MINA</h2>
+                        <h3>16 a 20 de Dezembro · Namaacha</h3>
+                        <p class="lema">"Eis-me aqui, envia-me a mim"</p>
+                        <div class="versiculo">
+                             <strong>Isaías 6:8</strong> — "Depois disso, ouvi a voz do Senhor, que dizia: A quem enviarei, e quem há de ir por nós? Então, disse eu: eis-me aqui, envia-me a mim."
+                        </div>
+                        <div class="hero-info">
+                            <div class="info-item">16 a 20 de Dezembro de 2026</div>
+                            <div class="info-item">Igreja de Macuacua - Namaacha</div>
+                            <div class="info-item">200 Jovens</div>
+                        </div>
+                        <div class="hero-botoes">
+                            <a href="./sobre.html" class="btn btn-primary">Saber Mais</a>
+                            <a href="./contactos.html" class="btn btn-secondary">Contactos</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="locais-section">
+        <!-- 2. O que é o Acampamento (Contextualização) -->
+        <section class="contexto">
             <div class="container">
-                <div class="locais-grid">
-                    <!-- Igreja -->
-                    <a href="local-igreja.html" style="text-decoration: none; color: inherit; display: block;">
-                        <div class="local-card fade-up">
-                            <div class="imagem">
-                                <img src="assets/images/images/igreja/1.jpeg" alt="Igreja do Nazareno" onerror="this.style.display='none'; this.parentElement.innerHTML='⛪'">
-                            </div>
+                <div class="contexto-grid">
+                    <div class="contexto-texto fade-left">
+                        <span class="section-tag">Contextualização</span>
+                        <h2>O que é o Acampamento RHUMA MINA?</h2>
+                        <p>O <strong>Acampamento Distrital da Juventude de Maputo</strong> é um evento anual que reúne jovens do distrito para um momento de <strong>transformação espiritual, crescimento pessoal e comunhão</strong>.</p>
+                        <p>O tema <strong>"RHUMA MINA"</strong> representa a disponibilidade diante de Deus, o chamado ao serviço e a entrega total da juventude para a obra do Senhor.</p>
+                        <blockquote>"RHUMA MINA" — Eis-me aqui, envia-me a mim.</blockquote>
+                        <p>Este acampamento será um espaço de <strong>transformação espiritual profunda</strong>, onde os jovens serão desafiados a assumir o seu papel na igreja e na sociedade.</p>
+                    </div>
+                    <div class="contexto-imagem fade-right">
+                        <div class="card-destaque-contexto">
+                            <span class="numero-destaque">200+</span>
+                            <p>Jovens Participantes</p>
+                        </div>
+                        <div class="card-destaque-contexto">
+                            <span class="numero-destaque">5</span>
+                            <p>Dias de Acampamento</p>
+                        </div>
+                        <div class="card-destaque-contexto">
+                            <span class="numero-destaque">6</span>
+                            <p>Comissões Organizacionais</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Resultados Esperados -->
+        <section class="resultados">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <span class="section-tag">Metas</span>
+                    <h2>Resultados Esperados</h2>
+                    <p>O que pretendemos alcançar com o Acampamento RHUMA MINA 2026</p>
+                </div>
+                <div class="resultados-grid">
+                    <div class="resultado-card fade-up">
+                        <div class="resultado-numero">01</div>
+                        <h3>Jovens comprometidos com o chamado de Deus</h3>
+                    </div>
+                    <div class="resultado-card fade-up delay-1">
+                        <div class="resultado-numero">02</div>
+                        <h3>Fortalecimento espiritual coletivo</h3>
+                    </div>
+                    <div class="resultado-card fade-up delay-2">
+                        <div class="resultado-numero">03</div>
+                        <h3>Formação de líderes ativos</h3>
+                    </div>
+                    <div class="resultado-card fade-up delay-3">
+                        <div class="resultado-numero">04</div>
+                        <h3>Impacto positivo nas igrejas e comunidades</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Programação do Acampamento (Prévia de Atividades) -->
+        <section class="previa-section">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <span class="section-tag">Programação</span>
+                    <h2>Programação do Acampamento</h2>
+                    <p>Conheça as experiências que vais viver</p>
+                </div>
+                <div class="previa-grid">
+                    <div class="previa-card fade-up">
+                        <span class="previa-icon"></span>
+                        <h3>Palestras e Estudos</h3>
+                        <p>Sessões com convidados e reflexão sobre a Palavra de Deus para crescimento espiritual.</p>
+                    </div>
+                    <div class="previa-card fade-up delay-1">
+                        <span class="previa-icon"></span>
+                        <h3>Cultos e Louvor</h3>
+                        <p>Momentos de adoração, louvor e mensagens inspiradoras para fortalecer a comunhão.</p>
+                    </div>
+                    <div class="previa-card fade-up delay-2">
+                        <span class="previa-icon"></span>
+                        <h3>Pacote Completo</h3>
+                        <p>Todas as atividades incluídas: visitas às montanhas, cascatas, Mbuzine e zoológico.</p>
+                        <div class="previa-preco">1.700 MT</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="./atividades.html" class="btn-ver-todos">Ver todas as atividades →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Lugares que vamos explorar (Prévia de Locais) -->
+        <section class="previa-section" style="background: var(--gray-bg); border-bottom: none;">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <span class="section-tag">Locais</span>
+                    <h2>Lugares que vamos explorar</h2>
+                    <p>Destinos incríveis durante o acampamento</p>
+                </div>
+                <div class="previa-grid">
+                    <a href="./local-igreja.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div class="previa-local-card fade-up">
+                            <img src="./assets/images/images/igreja/1.jpeg" alt="Igreja do Nazareno" onerror="this.style.display='none'">
                             <div class="overlay">
-                                <h3> Igreja do Nazareno</h3>
-                                <div class="localizacao"> Namaacha, Província de Maputo</div>
-                               
-                                <br>
-                                <span class="btn-ver-mais">Ver mais →</span>
+                                <h4>Igreja do Nazareno</h4>
+                                <p>Namaacha</p>
+                                <span class="tag espiritual">Espiritual</span>
                             </div>
                         </div>
                     </a>
-
-                    <!-- Montanhas -->
-                    <a href="local-montanhas.html" style="text-decoration: none; color: inherit; display: block;">
-                        <div class="local-card fade-up delay-1">
-                            <div class="imagem">
-                                <img src="assets/images/images/montanhas/1.jpg" alt="Montanhas de Namaacha" onerror="this.style.display='none'; this.parentElement.innerHTML='⛰️'">
-                            </div>
+                    <a href="./local-montanhas.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div class="previa-local-card fade-up delay-1">
+                            <img src="./assets/images/images/montanhas/1.jpg" alt="Montanhas de Namaacha" onerror="this.style.display='none'">
                             <div class="overlay">
-                                <h3> Montanhas de Namaacha</h3>
-                                <div class="localizacao"> Namaacha, Província de Maputo</div>
-                               
-                                <br>
-                                <span class="btn-ver-mais">Ver mais →</span>
+                                <h4>Montanhas de Namaacha</h4>
+                                <p>Monte Mponduine</p>
+                                <span class="tag natureza">Natureza</span>
                             </div>
                         </div>
                     </a>
-
-                    <!-- Cascatas -->
-                    <a href="local-cascatas.html" style="text-decoration: none; color: inherit; display: block;">
-                        <div class="local-card fade-up delay-2">
-                            <div class="imagem">
-                                <img src="assets/images/images/cascatas/1.jpeg" alt="Cascatas de Namaacha" onerror="this.style.display='none'; this.parentElement.innerHTML='💦'">
-                            </div>
+                    <a href="./local-cascatas.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div class="previa-local-card fade-up delay-2">
+                            <img src="./assets/images/images/cascatas/1.jpeg" alt="Cascatas de Namaacha" onerror="this.style.display='none'">
                             <div class="overlay">
-                                <h3> Cascatas de Namaacha</h3>
-                                <div class="localizacao"> Namaacha, Província de Maputo</div>
+                                <h4>Cascatas de Namaacha</h4>
+                                <p>Águas cristalinas</p>
+                                <span class="tag natureza">Natureza</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="./locais.html" class="btn-ver-todos">Ver todos os locais →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Carrossel (Galeria) -->
+        <section class="carrossel-section">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <span class="section-tag">Galeria</span>
+                    <h2>Momentos do Acampamento</h2>
+                    <p>Recordações dos eventos anteriores</p>
+                </div>
+                <div class="carrossel-container">
+                    <button class="carrossel-btn prev" id="prevBtn">❮</button>
+                    <div class="carrossel-wrapper">
+                        <div class="carrossel-track" id="carrosselTrack">
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/1.jpeg" alt="Acampamento 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Momento+de+Louvor'">
+                             
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/2.jpeg" alt="Acampamento 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Jovens+Reunidos'">
                               
-                                <br>
-                                <span class="btn-ver-mais">Ver mais →</span>
                             </div>
-                        </div>
-                    </a>
-
-                    <!-- Mbuzine -->
-                    <a href="local-mbuzine.html" style="text-decoration: none; color: inherit; display: block;">
-                        <div class="local-card fade-up delay-3">
-                            <div class="imagem">
-                                <img src="assets/images/images/mbuzine/1.jpeg" alt="Mbuzine" onerror="this.style.display='none'; this.parentElement.innerHTML='🏛️'">
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/3.jpeg" alt="Acampamento 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Adoração'">
+                               
                             </div>
-                            <div class="overlay">
-                                <h3>Mbuzine</h3>
-                                <div class="localizacao"> Mpumalanga, África do Sul</div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/4.jpeg" alt="Acampamento 4" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Mensagem'">
+                            
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/5.jpeg" alt="Acampamento 5" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Encerramento'">
+                               
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/6.jpeg" alt="Acampamento 6" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Momento+de+Oração'">
+                              
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/7.jpeg" alt="Acampamento 7" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Integração'">
+                              
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/8.jpeg" alt="Acampamento 8" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Reflexão'">
+                              
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/9.jpeg" alt="Acampamento 9" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Comunhão'">
+                              
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/10.jpeg" alt="Acampamento 10" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Louvor'">
+                               
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/11.jpeg" alt="Acampamento 11" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Palavra'">
                                 
-                                <br>
-                                <span class="btn-ver-mais">Ver mais →</span>
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/12.jpeg" alt="Acampamento 12" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Amizade'">
+                              
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/13.jpeg" alt="Acampamento 13" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Momento+Especial'">
+                               
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/14.jpeg" alt="Acampamento 14" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Unidade'">
+                               
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/15.jpeg" alt="Acampamento 15" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Alegria'">
+                              
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/16.jpeg" alt="Acampamento 16" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Esperança'">
+                              
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/17.jpeg" alt="Acampamento 17" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Transformação'">
+                               
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/18.jpeg" alt="Acampamento 18" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Encerramento'">
+                               
+                            </div>
+                            <div class="carrossel-slide">
+                                <img src="./assets/images/19.jpeg" alt="Acampamento 19" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Família'">
+                        
                             </div>
                         </div>
-                    </a>
+                    </div>
+                    <button class="carrossel-btn next" id="nextBtn">❯</button>
+                </div>
+                <div class="carrossel-indicadores" id="indicadores"></div>
+            </div>
+        </section>
 
-                    <!-- Zoológico -->
-                    <a href="local-zoologico.html" style="text-decoration: none; color: inherit; display: block;">
-                        <div class="local-card fade-up delay-4">
-                            <div class="imagem">
-                                <img src="assets/images/images/parque/1.jpeg" alt="Zoológico de Maputo" onerror="this.style.display='none'; this.parentElement.innerHTML='🦒'">
-                            </div>
-                            <div class="overlay">
-                                <h3> Zoológico de Maputo</h3>
-                                <div class="localizacao"> Maputo</div>
-
-                                <br>
-                                <span class="btn-ver-mais">Ver mais →</span>
-                            </div>
-                        </div>
-                    </a>
+        <!-- 7. Estrutura Organizacional -->
+        <section class="estrutura">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <span class="section-tag">Equipa</span>
+                    <h2>Estrutura Organizacional</h2>
+                    <p>Conheça as comissões que fazem o acampamento acontecer</p>
+                </div>
+                <div class="estrutura-grid">
+                    <div class="estrutura-card fade-up">
+                        <span class="estrutura-icon"></span>
+                        <h4>Coordenação Geral</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-1">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Evangelismo</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-2">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Logística</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-3">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Alimentação</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-4">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Segurança</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-5">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Finanças</h4>
+                    </div>
+                    <div class="estrutura-card fade-up delay-6">
+                        <span class="estrutura-icon"></span>
+                        <h4>Comissão de Comunicação</h4>
+                    </div>
                 </div>
             </div>
         </section>
@@ -477,7 +1324,7 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <div class="footer-logo">
-                        <img src="assets/images/logo.jpeg" alt="Logo" class="logo-footer" onerror="this.src='https://via.placeholder.com/50x50?text=RHUMA'">
+                        <img src="./assets/images/logo.jpeg" alt="Logo" class="logo-footer" onerror="this.src='https://via.placeholder.com/50x50?text=RHUMA'">
                         <div>
                             <h3>Acampamento RHUMA MINA</h3>
                             <p>JNI · Distrito de Maputo</p>
@@ -489,13 +1336,10 @@
                     <div>
                         <h4>Navegação</h4>
                         <ul>
-                            <li><a href="index.html">Início</a></li>
-                            <li><a href="atividades.html">Atividades</a></li>
-                            <li><a href="testemunhos.html">Testemunhos</a></li>
-                            <li><a href="locais.html">Locais</a></li>
-                            <li><a href="sobre.html">Sobre</a></li>
-                            <li><a href="estrutura.html">Estrutura</a></li>
-                            <li><a href="contactos.html">Contactos</a></li>
+                            <li><a href="./index.html">Início</a></li>
+                            <li><a href="./sobre.html">Sobre</a></li>
+                            <li><a href="./estrutura.html">Estrutura</a></li>
+                            <li><a href="./contactos.html">Contactos</a></li>
                         </ul>
                     </div>
                     <div>
@@ -516,8 +1360,8 @@
                         </ul>
                         <h4>Redes Sociais</h4>
                         <ul>
-                            <li><a href="https://www.instagram.com/jni_distrito_de_maputo?igsh=MW4zZWUwYmVlNW1xcA==" target="_blank">Instagram</a></li>
-                            <li><a href="https://www.facebook.com/share/19KG9htsmF/" target="_blank">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/jni_distrito_de_maputo?igsh=MW4zZWUwYmVlNW1xcA==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/share/19KG9htsmF/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         </ul>
                     </div>
                 </div>
@@ -525,25 +1369,106 @@
             <div class="footer-bottom">
                 <p>© 2026 Acampamento RHUMA MINA · JNI Distrito de Maputo</p>
                 <p class="lema-footer">"Eis-me aqui, envia-me a mim"</p>
-                <p class="dev">Desenvolvido por Marcos Lopes</p>
+                <p style="margin-top: 10px; font-size: 12px; opacity: 0.5; color: #a0aec0;">
+                    Desenvolvido por Marcos Lopes
+                </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu Mobile
-        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        var navList = document.getElementById('navList');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                navList.classList.toggle('active');
+        // Menu Mobile – sem toggle, apenas manter a lista visível.
+        // Não há necessidade de script para o menu, mas mantemos para o carrossel e animações.
+
+        // Carrossel
+        (function() {
+            var track = document.getElementById('carrosselTrack');
+            var slides = document.querySelectorAll('.carrossel-slide');
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+            var indicadoresContainer = document.getElementById('indicadores');
+
+            if (!track || slides.length === 0) return;
+
+            var currentSlide = 0;
+            var totalSlides = slides.length;
+            var autoplayInterval = null;
+            var isTransitioning = false;
+
+            if (indicadoresContainer) {
+                for (var i = 0; i < totalSlides; i++) {
+                    var indicador = document.createElement('button');
+                    indicador.className = 'indicador';
+                    if (i === 0) indicador.classList.add('active');
+                    indicador.setAttribute('data-index', i);
+                    (function(index) {
+                        indicador.addEventListener('click', function() {
+                            if (!isTransitioning) {
+                                goToSlide(index);
+                                resetAutoplay();
+                            }
+                        });
+                    })(i);
+                    indicadoresContainer.appendChild(indicador);
+                }
+            }
+
+            function goToSlide(index) {
+                if (isTransitioning) return;
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                isTransitioning = true;
+                currentSlide = index;
+                track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+                
+                var indicadores = document.querySelectorAll('.indicador');
+                for (var i = 0; i < indicadores.length; i++) {
+                    if (i === currentSlide) {
+                        indicadores[i].classList.add('active');
+                    } else {
+                        indicadores[i].classList.remove('active');
+                    }
+                }
+                setTimeout(function() { isTransitioning = false; }, 600);
+            }
+
+            function nextSlide() { if (!isTransitioning) goToSlide(currentSlide + 1); }
+            function prevSlide() { if (!isTransitioning) goToSlide(currentSlide - 1); }
+
+            if (nextBtn) nextBtn.addEventListener('click', function(e) { 
+                e.stopPropagation(); 
+                nextSlide(); 
+                resetAutoplay(); 
             });
-        }
-        document.querySelectorAll('.nav-list a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navList.classList.remove('active');
+            
+            if (prevBtn) prevBtn.addEventListener('click', function(e) { 
+                e.stopPropagation(); 
+                prevSlide(); 
+                resetAutoplay(); 
             });
-        });
+
+            function startAutoplay() {
+                if (autoplayInterval) { clearInterval(autoplayInterval); autoplayInterval = null; }
+                if (totalSlides > 1) { autoplayInterval = setInterval(function() { nextSlide(); }, 5000); }
+            }
+
+            function resetAutoplay() {
+                if (autoplayInterval) { clearInterval(autoplayInterval); autoplayInterval = null; }
+                startAutoplay();
+            }
+
+            if (totalSlides > 1) { startAutoplay(); }
+
+            var carrosselContainer = document.querySelector('.carrossel-container');
+            if (carrosselContainer) {
+                carrosselContainer.addEventListener('mouseenter', function() {
+                    if (autoplayInterval) { clearInterval(autoplayInterval); autoplayInterval = null; }
+                });
+                carrosselContainer.addEventListener('mouseleave', function() {
+                    if (!autoplayInterval && totalSlides > 1) { startAutoplay(); }
+                });
+            }
+        })();
 
         // Animações
         var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
@@ -554,7 +1479,8 @@
                 }
             });
         }, observerOptions);
-        document.querySelectorAll('.fade-up').forEach(function(el) {
+
+        document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(function(el) {
             observer.observe(el);
         });
     </script>
