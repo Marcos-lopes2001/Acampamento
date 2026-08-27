@@ -90,6 +90,7 @@
             display: flex;
             list-style: none;
             gap: 32px;
+            flex-wrap: wrap;
         }
 
         .nav-list a {
@@ -119,12 +120,7 @@
         .nav-list a.active { color: var(--secondary); }
 
         .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 24px;
-            cursor: pointer;
+            display: none !important;
         }
 
         .page-header {
@@ -165,7 +161,7 @@
             min-width: 100%;
             position: relative;
             flex-shrink: 0;
-            height: 380px; /* Altura fixa e mais compacta */
+            height: 380px;
         }
 
         .carrossel-img {
@@ -245,41 +241,21 @@
 
         /* RESPONSIVIDADE DO CARROSSEL */
         @media (max-width: 1024px) {
-            .carrossel-slide {
-                height: 320px;
-            }
+            .carrossel-slide { height: 320px; }
         }
 
         @media (max-width: 768px) {
-            .carrossel-slide {
-                height: 260px;
-            }
-            .carrossel-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
-            }
-            .carrossel-legenda {
-                font-size: 13px;
-                padding: 12px;
-            }
+            .carrossel-slide { height: 260px; }
+            .carrossel-btn { width: 32px; height: 32px; font-size: 14px; }
+            .carrossel-legenda { font-size: 13px; padding: 12px; }
         }
 
         @media (max-width: 480px) {
-            .carrossel-slide {
-                height: 200px;
-            }
-            .carrossel-btn {
-                width: 28px;
-                height: 28px;
-                font-size: 12px;
-            }
+            .carrossel-slide { height: 200px; }
+            .carrossel-btn { width: 28px; height: 28px; font-size: 12px; }
             .carrossel-btn.prev { left: 6px; }
             .carrossel-btn.next { right: 6px; }
-            .carrossel-legenda {
-                font-size: 11px;
-                padding: 10px;
-            }
+            .carrossel-legenda { font-size: 11px; padding: 10px; }
         }
 
         .descricao-local {
@@ -333,6 +309,9 @@
             display: block;
             border-radius: 50%;
             border: 2px solid var(--secondary);
+            background: var(--white);
+            padding: 2px;
+            flex-shrink: 0;
         }
 
         .footer-logo h3 { font-size: 16px; color: var(--white); }
@@ -363,24 +342,44 @@
 
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .mobile-menu-btn { display: block; }
-            .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
+
+            .header .container {
                 flex-direction: column;
-                padding: 20px;
-                gap: 16px;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                align-items: stretch;
+                gap: 12px;
             }
-            .nav-list.active { display: flex; }
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            .nav-list {
+                display: flex !important;
+                justify-content: center;
+                gap: 12px 16px;
+                flex-wrap: wrap;
+                padding: 8px 0;
+                border-top: 1px solid #e2e8f0;
+                border-bottom: 1px solid #e2e8f0;
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                flex-direction: row;
+            }
+
+            .nav-list a {
+                font-size: 14px;
+                padding: 4px 0;
+            }
+
             .page-header h1 { font-size: 24px; }
             .footer-content { grid-template-columns: 1fr; gap: 32px; }
             .footer-links { grid-template-columns: 1fr; gap: 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-list { gap: 8px 12px; }
+            .nav-list a { font-size: 13px; }
         }
     </style>
 </head>
@@ -398,8 +397,7 @@
                 </div>
             </div>
             <nav class="nav">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <ul class="nav-list" id="navList">
+                <ul class="nav-list">
                     <li><a href="index.html">Início</a></li>
                     <li><a href="atividades.html">Atividades</a></li>
                     <li><a href="testemunhos.html">Testemunhos</a></li>
@@ -415,7 +413,7 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1> Zoológico de Maputo</h1>
+                <h1>Zoológico de Maputo</h1>
                 <a href="locais.html" class="voltar">← Voltar para Locais</a>
             </div>
         </section>
@@ -425,84 +423,84 @@
             <div class="carrossel-wrapper">
                 <div class="carrossel-track" id="carrosselTrack">
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/1.jpeg" alt="Zoológico 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+1'">
-                    
+                        <img src="assets/images/parque/1.jpeg" alt="Zoológico 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+1'">
+                        <div class="carrossel-legenda">Animais Selvagens</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/2.jpeg" alt="Zoológico 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+2'">
-                        
-                    </div>
-                    <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/3.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                       
-                    </div>
-                    <div class="carrossel-slide">
-                        <img src="assets/images/parque/4.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                       
-                    </div>
-                    <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/5.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                        
-                    </div>
-                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/6.jpeg" alt="Zoológico 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+1'">
-                        
-                    </div>
-                    <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/7.jpeg" alt="Zoológico 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+2'">
-                       
-                    </div>
-                    <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/8.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                        
-                    </div>
-                    <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/9.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                        
-                    </div>
-                    <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/11.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                        
-                    </div>
-                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/10.jpeg" alt="Zoológico 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+1'">
-                       
-                    </div>
-                    <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/12.jpeg" alt="Zoológico 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+2'">
+                        <img src="assets/images/parque/2.jpeg" alt="Zoológico 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+2'">
                         <div class="carrossel-legenda">Girafas e Zebras</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/13.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                        
+                        <img src="assets/images/parque/3.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
+                        <div class="carrossel-legenda">Leões</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/14.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                       
+                        <img src="assets/images/parque/4.jpeg" alt="Zoológico 4" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+4'">
+                        <div class="carrossel-legenda">Leões</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/15.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                        
-                    </div>
-                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/16.jpeg" alt="Zoológico 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+1'">
-                       
+                        <img src="assets/images/parque/5.jpeg" alt="Zoológico 5" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+5'">
+                        <div class="carrossel-legenda">Leões</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/17.jpeg" alt="Zoológico 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+2'">
-                        
+                        <img src="assets/images/parque/6.jpeg" alt="Zoológico 6" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+6'">
+                        <div class="carrossel-legenda">Animais Selvagens</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/18.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                       
+                        <img src="assets/images/parque/7.jpeg" alt="Zoológico 7" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+7'">
+                        <div class="carrossel-legenda">Girafas e Zebras</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/19.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                       
+                        <img src="assets/images/parque/8.jpeg" alt="Zoológico 8" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+8'">
+                        <div class="carrossel-legenda">Leões</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/parque/20.jpeg" alt="Zoológico 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+3'">
-                        
+                        <img src="assets/images/parque/9.jpeg" alt="Zoológico 9" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+9'">
+                        <div class="carrossel-legenda">Leões</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/11.jpeg" alt="Zoológico 11" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+11'">
+                        <div class="carrossel-legenda">Leões</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/10.jpeg" alt="Zoológico 10" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+10'">
+                        <div class="carrossel-legenda">Animais Selvagens</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/12.jpeg" alt="Zoológico 12" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+12'">
+                        <div class="carrossel-legenda">Girafas e Zebras</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/13.jpeg" alt="Zoológico 13" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+13'">
+                        <div class="carrossel-legenda">Leões</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/14.jpeg" alt="Zoológico 14" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+14'">
+                        <div class="carrossel-legenda">Leões</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/15.jpeg" alt="Zoológico 15" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+15'">
+                        <div class="carrossel-legenda">Leões</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/16.jpeg" alt="Zoológico 16" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+16'">
+                        <div class="carrossel-legenda">Animais Selvagens</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/17.jpeg" alt="Zoológico 17" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+17'">
+                        <div class="carrossel-legenda">Girafas e Zebras</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/18.jpeg" alt="Zoológico 18" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+18'">
+                        <div class="carrossel-legenda">Leões</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/19.jpeg" alt="Zoológico 19" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+19'">
+                        <div class="carrossel-legenda">Leões</div>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="assets/images/parque/20.jpeg" alt="Zoológico 20" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Zoológico+20'">
+                        <div class="carrossel-legenda">Leões</div>
                     </div>
                 </div>
             </div>
@@ -511,12 +509,12 @@
         <div class="carrossel-indicadores" id="indicadores"></div>
 
         <div class="descricao-local">
-            <h2> Sobre o Zoológico de Maputo</h2>
-            <p>O Jardim Zoológico de Namaacha, também conhecido como MHM Farms, é um parque zoológico privado com cerca de 60 hectares, localizado na Província de Maputo.</p>
-            <p>O Zoológico de Namaacha destaca-se pela promoção do ecoturismo e do turismo rural, proporcionando aos visitantes uma experiência única de contacto com a natureza e com diversas espécies de animais.</p>
-            <p>O Jardim Zoológico de Namaacha alberga uma grande variedade de animais selvagens e domésticos. Entre os mamíferos e animais de grande porte destacam-se leões, girafas, zebras, búfalos, camelos, alpacas, bem como gado bovino, caprino e ovino.</p>
-            <p>O parque conta ainda com uma coleção de répteis, incluindo cobras, lagartos e iguanas-verdes, oferecendo uma excelente oportunidade para conhecer de perto a diversidade da fauna.</p>
-            <span class="tag aventura"> Aventura</span>
+            <h2>Sobre o Zoológico de Maputo</h2>
+            <p>O Jardim Zoológico de Namaacha, também conhecido como MHM Farms, é um parque zoológico privado com cerca de 60 hectares, localizado na Provincia de Maputo.</p>
+            <p>O Zoológico de Namaacha destaca-se pela promocao do ecoturismo e do turismo rural, proporcionando aos visitantes uma experiência unica de contacto com a natureza e com diversas espécies de animais.</p>
+            <p>O Jardim Zoológico de Namaacha alberga uma grande variedade de animais selvagens e domesticos. Entre os mamiferos e animais de grande porte destacam-se leões, girafas, zebras, bufalos, camelos, alpacas, bem como gado bovino, caprino e ovino.</p>
+            <p>O parque conta ainda com uma colecao de repteis, incluindo cobras, lagartos e iguanas-verdes, oferecendo uma excelente oportunidade para conhecer de perto a diversidade da fauna.</p>
+            <span class="tag aventura">Aventura</span>
         </div>
     </main>
 
@@ -531,11 +529,11 @@
                             <p>JNI · Distrito de Maputo</p>
                         </div>
                     </div>
-                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaías 6:8</p>
+                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaias 6:8</p>
                 </div>
                 <div class="footer-links">
                     <div>
-                        <h4>Navegação</h4>
+                        <h4>Navegacao</h4>
                         <ul>
                             <li><a href="index.html">Início</a></li>
                             <li><a href="atividades.html">Atividades</a></li>
@@ -657,19 +655,6 @@
                 });
             }
         })();
-
-        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        var navList = document.getElementById('navList');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                navList.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-list a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navList.classList.remove('active');
-            });
-        });
     </script>
 </body>
 </html>

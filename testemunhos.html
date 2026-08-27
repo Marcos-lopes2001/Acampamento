@@ -99,6 +99,7 @@
             display: flex;
             list-style: none;
             gap: 32px;
+            flex-wrap: wrap;
         }
 
         .nav-list a {
@@ -132,12 +133,7 @@
         }
 
         .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 24px;
-            cursor: pointer;
+            display: none !important;
         }
 
         /* PAGE HEADER */
@@ -245,63 +241,6 @@
             margin-top: 10px;
         }
 
-        /* ORADORES */
-        .oradores-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .orador-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: var(--shadow);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .orador-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-color: var(--primary);
-        }
-
-        .orador-card .foto-orador {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: var(--primary-bg);
-            margin: 0 auto 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 44px;
-            border: 3px solid var(--primary);
-        }
-
-        .orador-card .nome-orador {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .orador-card .tema {
-            font-size: 14px;
-            color: var(--secondary);
-            font-weight: 600;
-            margin: 4px 0;
-        }
-
-        .orador-card .bio {
-            font-size: 13px;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-top: 8px;
-        }
-
         /* FOOTER */
         .footer {
             background: #1a202c;
@@ -330,6 +269,9 @@
             display: block;
             border-radius: 50%;
             border: 2px solid var(--secondary);
+            background: var(--white);
+            padding: 2px;
+            flex-shrink: 0;
         }
 
         .footer-logo h3 {
@@ -433,9 +375,6 @@
             .testemunhos-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .oradores-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
@@ -443,32 +382,36 @@
                 padding: 0 20px;
             }
 
-            .mobile-menu-btn {
-                display: block;
+            .header .container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .logo-area {
+                justify-content: center;
             }
 
             .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                flex-direction: column;
-                padding: 20px;
-                gap: 16px;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                display: flex !important;
+                justify-content: center;
+                gap: 12px 16px;
+                flex-wrap: wrap;
+                padding: 8px 0;
+                border-top: 1px solid #e2e8f0;
+                border-bottom: 1px solid #e2e8f0;
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                flex-direction: row;
             }
 
-            .nav-list.active {
-                display: flex;
+            .nav-list a {
+                font-size: 14px;
+                padding: 4px 0;
             }
 
             .testemunhos-grid {
-                grid-template-columns: 1fr;
-            }
-            .oradores-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -484,6 +427,24 @@
             .footer-links {
                 grid-template-columns: 1fr;
                 gap: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-list {
+                gap: 8px 12px;
+            }
+
+            .nav-list a {
+                font-size: 13px;
+            }
+
+            .page-header h1 {
+                font-size: 24px;
+            }
+
+            .categoria-titulo {
+                font-size: 22px;
             }
         }
     </style>
@@ -502,12 +463,11 @@
                 </div>
             </div>
             <nav class="nav">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <ul class="nav-list" id="navList">
-                    <li><a href="index.html" class="active">Início</a></li>
+                <ul class="nav-list">
+                    <li><a href="index.html">Início</a></li>
                     <li><a href="atividades.html">Atividades</a></li>
-                     <li><a href="testemunhos.html">Testemunhos</a></li>
-                     <li><a href="locais.html">Locais</a></li>
+                    <li><a href="testemunhos.html" class="active">Testemunhos</a></li>
+                    <li><a href="locais.html">Locais</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="estrutura.html">Estrutura</a></li>
                     <li><a href="contactos.html">Contactos</a></li>
@@ -519,7 +479,7 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1> Testemunhos</h1>
+                <h1>Testemunhos</h1>
                 <p>O que os participantes e oradores dizem sobre o Acampamento RHUMA MINA</p>
             </div>
         </section>
@@ -527,79 +487,79 @@
         <section class="testemunhos-section">
             <div class="container">
                 <!-- Testemunhos dos Participantes -->
-                <h2 class="categoria-titulo"> Testemunhos dos Participantes</h2>
+                <h2 class="categoria-titulo">Testemunhos dos Participantes</h2>
                 <div class="testemunhos-grid">
                     <div class="testemunho-card fade-up">
-                        <div class="foto"></div>
+                        <div class="foto">👤</div>
                         <div class="nome">Ana Maria dos Santos</div>
                         <div class="cargo">Participante · JNI Maputo Central</div>
-                        <div class="texto">O Acampamento RHUMA MINA mudou a minha vida. Foi lá que Deus falou comigo e eu decidi responder "Eis-me aqui". As palestras e os momentos de oração foram transformadores.</div>
+                        <div class="texto">O Acampamento RHUMA MINA mudou a minha vida. Foi la que Deus falou comigo e eu decidi responder "Eis-me aqui". As palestras e os momentos de oracao foram transformadores.</div>
                         <div class="estrelas">★★★★★</div>
                     </div>
 
                     <div class="testemunho-card fade-up delay-1">
-                        <div class="foto"></div>
-                        <div class="nome">Carlos João Macie</div>
+                        <div class="foto">👤</div>
+                        <div class="nome">Carlos Joao Macie</div>
                         <div class="cargo">Participante · JNI Mavalane</div>
-                        <div class="texto">A comunhão com outros jovens, os estudos bíblicos e a visita às montanhas foram experiências únicas. Voltei para casa com uma nova visão sobre o meu propósito.</div>
+                        <div class="texto">A comunhao com outros jovens, os estudos biblicos e a visita as montanhas foram experiencias unicas. Voltei para casa com uma nova visao sobre o meu proposito.</div>
                         <div class="estrelas">★★★★★</div>
                     </div>
 
                     <div class="testemunho-card fade-up delay-2">
-                        <div class="foto"></div>
-                        <div class="nome">Maria Luísa Nhantumbo</div>
+                        <div class="foto">👤</div>
+                        <div class="nome">Maria Luisa Nhantumbo</div>
                         <div class="cargo">Participante · JNI Laulane</div>
-                        <div class="texto">Eu nunca tinha participado de um acampamento antes. Foi uma experiência incrível! Aprendi muito sobre liderança e fiz amizades que levarei para a vida toda.</div>
+                        <div class="texto">Eu nunca tinha participado de um acampamento antes. Foi uma experiencia incrivel! Aprendi muito sobre lideranca e fiz amizades que levarei para a vida toda.</div>
                         <div class="estrelas">★★★★★</div>
                     </div>
 
                     <div class="testemunho-card fade-up delay-3">
-                        <div class="foto"></div>
-                        <div class="nome">Pedro João Tembe</div>
+                        <div class="foto">👤</div>
+                        <div class="nome">Pedro Joao Tembe</div>
                         <div class="cargo">Participante · JNI Albazine</div>
-                        <div class="texto">O acampamento me ensinou a importância de servir. A visita às cascatas e os momentos de oração em grupo me fizeram sentir mais perto de Deus.</div>
+                        <div class="texto">O acampamento me ensinou a importancia de servir. A visita as cascatas e os momentos de oracao em grupo me fizeram sentir mais perto de Deus.</div>
                         <div class="estrelas">★★★★★</div>
                     </div>
 
                     <div class="testemunho-card fade-up delay-4">
-                        <div class="foto"></div>
-                        <div class="nome">Helena Fátima Cossa</div>
-                        <div class="cargo">Participante ·JNI Magoanine</div>
-                        <div class="texto">Foi um dos melhores momentos da minha vida! O acampamento me ajudou a encontrar meu propósito e a entender que Deus tem um plano para mim.</div>
+                        <div class="foto">👤</div>
+                        <div class="nome">Helena Fatima Cossa</div>
+                        <div class="cargo">Participante · JNI Magoanine</div>
+                        <div class="texto">Foi um dos melhores momentos da minha vida! O acampamento me ajudou a encontrar meu proposito e a entender que Deus tem um plano para mim.</div>
                         <div class="estrelas">★★★★★</div>
                     </div>
 
                     <div class="testemunho-card fade-up delay-5">
-                        <div class="foto"></div>
-                        <div class="nome">João Carlos Bila</div>
+                        <div class="foto">👤</div>
+                        <div class="nome">Joao Carlos Bila</div>
                         <div class="cargo">Participante · JNI Costa do Sol</div>
-                        <div class="texto">RHUMA MINA não é apenas um acampamento, é uma experiência de transformação. As palestras e os cultos me tocaram profundamente.</div>
+                        <div class="texto">RHUMA MINA nao e apenas um acampamento, e uma experiencia de transformacao. As palestras e os cultos me tocaram profundamente.</div>
                         <div class="estrelas">★★★★★</div>
                     </div>
                 </div>
 
                 <!-- Testemunhos dos Oradores -->
-                <h2 class="categoria-titulo"> Testemunhos dos Oradores</h2>
+                <h2 class="categoria-titulo">Testemunhos dos Oradores</h2>
                 <div class="testemunhos-grid">
                     <div class="testemunho-card fade-up">
-                        <div class="foto"></div>
-                        <div class="nome">Pastor Salomão Tivane</div>
-                        <div class="cargo">Orador · Pregação</div>
-                        <div class="texto">Ver a juventude tão comprometida com a obra de Deus é inspirador. O tema "Eis-me aqui" ressoou no coração de cada jovem presente.</div>
+                        <div class="foto">👤</div>
+                        <div class="nome">Pastor Salomao Tivane</div>
+                        <div class="cargo">Orador · Pregacao</div>
+                        <div class="texto">Ver a juventude tao comprometida com a obra de Deus e inspirador. O tema "Eis-me aqui" ressoou no coracao de cada jovem presente.</div>
                     </div>
 
                     <div class="testemunho-card fade-up delay-1">
-                        <div class="foto"></div>
-                        <div class="nome">Reva. Fílsia Inguane</div>
+                        <div class="foto">👤</div>
+                        <div class="nome">Reva. Filsia Inguane</div>
                         <div class="cargo">Oradora · Avante Jovem</div>
-                        <div class="texto">O acampamento RHUMA MINA é um dos mais bem organizados que já participei. A energia e a disposição dos jovens em servir a Deus é contagiante.</div>
+                        <div class="texto">O acampamento RHUMA MINA e um dos mais bem organizados que ja participei. A energia e a disposicao dos jovens em servir a Deus e contagiante.</div>
                     </div>
 
                     <div class="testemunho-card fade-up delay-2">
-                        <div class="foto"></div>
+                        <div class="foto">👤</div>
                         <div class="nome">Superintendente Eduardo Macamo</div>
                         <div class="cargo">Orador · Palavra Inicial</div>
-                        <div class="texto">É gratificante ver a juventude nazarena unida em torno de um propósito maior. Este acampamento é um marco na história da nossa igreja.</div>
+                        <div class="texto">E gratificante ver a juventude nazarena unida em torno de um proposito maior. Este acampamento e um marco na historia da nossa igreja.</div>
                     </div>
                 </div>
             </div>
@@ -617,11 +577,11 @@
                             <p>JNI · Distrito de Maputo</p>
                         </div>
                     </div>
-                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaías 6:8</p>
+                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaias 6:8</p>
                 </div>
                 <div class="footer-links">
                     <div>
-                        <h4>Navegação</h4>
+                        <h4>Navegacao</h4>
                         <ul>
                             <li><a href="index.html">Início</a></li>
                             <li><a href="sobre.html">Sobre</a></li>
@@ -647,11 +607,10 @@
                             <li>Edson Cau: 84 513 2991</li>
                             <li>Lourino Langa: 86 260 0363</li>
                         </ul>
-                         <h4>Redes Sociais</h4>
+                        <h4>Redes Sociais</h4>
                         <ul>
                             <li><a href="https://www.instagram.com/jni_distrito_de_maputo?igsh=MW4zZWUwYmVlNW1xcA==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                             <li><a href="https://www.facebook.com/share/19KG9htsmF/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                           
                         </ul>
                     </div>
                 </div>
@@ -665,18 +624,8 @@
     </footer>
 
     <script>
-        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        var navList = document.getElementById('navList');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                navList.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-list a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navList.classList.remove('active');
-            });
-        });
+        // Removido o codigo do menu mobile (toggle) pois nao ha mais botao hamburguer
+
         var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {

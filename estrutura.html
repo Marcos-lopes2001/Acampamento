@@ -103,6 +103,7 @@
             display: flex;
             list-style: none;
             gap: 32px;
+            flex-wrap: wrap;
         }
 
         .nav-list a {
@@ -136,12 +137,7 @@
         }
 
         .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 24px;
-            cursor: pointer;
+            display: none !important;
         }
 
         /* PAGE HEADER */
@@ -187,12 +183,6 @@
             opacity: 0.9;
         }
 
-        .coordenacao .coordenacao-icon {
-            font-size: 40px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
         .comissao-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -214,12 +204,6 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-color: var(--secondary);
-        }
-
-        .comissao-card .comissao-icon {
-            font-size: 48px;
-            display: block;
-            margin-bottom: 12px;
         }
 
         .comissao-card h3 {
@@ -272,6 +256,9 @@
             display: block;
             border-radius: 50%;
             border: 2px solid var(--secondary);
+            background: var(--white);
+            padding: 2px;
+            flex-shrink: 0;
         }
 
         .footer-logo h3 {
@@ -370,30 +357,41 @@
                 padding: 0 20px;
             }
 
-            .mobile-menu-btn {
-                display: block;
+            .header .container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .logo-area {
+                justify-content: center;
             }
 
             .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                flex-direction: column;
-                padding: 20px;
-                gap: 16px;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                display: flex !important;
+                justify-content: center;
+                gap: 12px 16px;
+                flex-wrap: wrap;
+                padding: 8px 0;
+                border-top: 1px solid #e2e8f0;
+                border-bottom: 1px solid #e2e8f0;
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                flex-direction: row;
             }
 
-            .nav-list.active {
-                display: flex;
+            .nav-list a {
+                font-size: 14px;
+                padding: 4px 0;
             }
 
             .comissao-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .page-header h1 {
+                font-size: 28px;
             }
         }
 
@@ -403,7 +401,19 @@
             }
 
             .page-header h1 {
-                font-size: 28px;
+                font-size: 24px;
+            }
+
+            .nav-list {
+                gap: 8px 12px;
+            }
+
+            .nav-list a {
+                font-size: 13px;
+            }
+
+            .coordenacao h3 {
+                font-size: 20px;
             }
         }
     </style>
@@ -422,14 +432,13 @@
                 </div>
             </div>
             <nav class="nav">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <ul class="nav-list" id="navList">
-                    <li><a href="index.html" class="active">Início</a></li>
+                <ul class="nav-list">
+                    <li><a href="index.html">Início</a></li>
                     <li><a href="atividades.html">Atividades</a></li>
-                     <li><a href="testemunhos.html">Testemunhos</a></li>
-                     <li><a href="locais.html">Locais</a></li>
+                    <li><a href="testemunhos.html">Testemunhos</a></li>
+                    <li><a href="locais.html">Locais</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="estrutura.html">Estrutura</a></li>
+                    <li><a href="estrutura.html" class="active">Estrutura</a></li>
                     <li><a href="contactos.html">Contactos</a></li>
                 </ul>
             </nav>
@@ -447,49 +456,42 @@
         <section class="estrutura-page">
             <div class="container">
                 <div class="coordenacao fade-up">
-                    <span class="coordenacao-icon"></span>
                     <h3>Coordenação Geral</h3>
                     <p>Responsável por coordenar todas as atividades e comissões do acampamento</p>
                 </div>
 
                 <div class="comissao-grid">
                     <div class="comissao-card fade-up">
-                        <span class="comissao-icon"></span>
                         <h3>Comissão de Evangelismo</h3>
                         <p>Responsável pelas atividades evangelísticas e alcance de almas</p>
                         <span class="responsavel">Responsável: A definir</span>
                     </div>
 
                     <div class="comissao-card fade-up delay-1">
-                        <span class="comissao-icon"></span>
                         <h3>Comissão de Logística</h3>
                         <p>Responsável pelo transporte, montagem e organização do espaço</p>
                         <span class="responsavel">Responsável: A definir</span>
                     </div>
 
                     <div class="comissao-card fade-up delay-2">
-                        <span class="comissao-icon"></span>
                         <h3>Comissão de Alimentação</h3>
                         <p>Responsável pelo planeamento e preparação das refeições</p>
                         <span class="responsavel">Responsável: A definir</span>
                     </div>
 
                     <div class="comissao-card fade-up delay-3">
-                        <span class="comissao-icon"></span>
                         <h3>Comissão de Segurança</h3>
                         <p>Responsável pela segurança e bem-estar dos participantes</p>
                         <span class="responsavel">Responsável: A definir</span>
                     </div>
 
                     <div class="comissao-card fade-up delay-4">
-                        <span class="comissao-icon"></span>
                         <h3>Comissão de Finanças</h3>
                         <p>Responsável pela gestão financeira e captação de recursos</p>
                         <span class="responsavel">Responsável: A definir</span>
                     </div>
 
                     <div class="comissao-card fade-up delay-5">
-                        <span class="comissao-icon"></span>
                         <h3>Comissão de Comunicação</h3>
                         <p>Responsável pela divulgação, redes sociais e registo fotográfico</p>
                         <span class="responsavel">Responsável: A definir</span>
@@ -525,7 +527,6 @@
                         <ul>
                             <li><a href="https://www.instagram.com/jni_distrito_de_maputo?igsh=MW4zZWUwYmVlNW1xcA==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                             <li><a href="https://www.facebook.com/share/19KG9htsmF/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                           
                         </ul>
                     </div>
                     <div>
@@ -550,30 +551,15 @@
             <div class="footer-bottom">
                 <p>© 2026 Acampamento RHUMA MINA · JNI Distrito de Maputo</p>
                 <p class="lema-footer">"Eis-me aqui, envia-me a mim"</p>
-                 <p style="margin-top: 10px; font-size: 12px; opacity: 0.5; color: #a0aec0;">
-                Desenvolvido por Marcos Lopes
-            </p>
+                <p style="margin-top: 10px; font-size: 12px; opacity: 0.5; color: #a0aec0;">
+                    Desenvolvido por Marcos Lopes
+                </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu Mobile
-        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        var navList = document.getElementById('navList');
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                navList.classList.toggle('active');
-            });
-        }
-
-        var navLinks = document.querySelectorAll('.nav-list a');
-        for (var i = 0; i < navLinks.length; i++) {
-            navLinks[i].addEventListener('click', function() {
-                navList.classList.remove('active');
-            });
-        }
+        // Removido o código do menu mobile (toggle) pois não há mais botão hambúrguer
 
         // Animações
         var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };

@@ -91,6 +91,7 @@
             display: flex;
             list-style: none;
             gap: 32px;
+            flex-wrap: wrap;
         }
 
         .nav-list a {
@@ -120,12 +121,7 @@
         .nav-list a.active { color: var(--secondary); }
 
         .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 24px;
-            cursor: pointer;
+            display: none !important;
         }
 
         .page-header {
@@ -166,7 +162,7 @@
             min-width: 100%;
             position: relative;
             flex-shrink: 0;
-            height: 380px; /* Altura fixa e mais compacta */
+            height: 380px;
         }
 
         .carrossel-img {
@@ -246,41 +242,21 @@
 
         /* RESPONSIVIDADE DO CARROSSEL */
         @media (max-width: 1024px) {
-            .carrossel-slide {
-                height: 320px;
-            }
+            .carrossel-slide { height: 320px; }
         }
 
         @media (max-width: 768px) {
-            .carrossel-slide {
-                height: 260px;
-            }
-            .carrossel-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
-            }
-            .carrossel-legenda {
-                font-size: 13px;
-                padding: 12px;
-            }
+            .carrossel-slide { height: 260px; }
+            .carrossel-btn { width: 32px; height: 32px; font-size: 14px; }
+            .carrossel-legenda { font-size: 13px; padding: 12px; }
         }
 
         @media (max-width: 480px) {
-            .carrossel-slide {
-                height: 200px;
-            }
-            .carrossel-btn {
-                width: 28px;
-                height: 28px;
-                font-size: 12px;
-            }
+            .carrossel-slide { height: 200px; }
+            .carrossel-btn { width: 28px; height: 28px; font-size: 12px; }
             .carrossel-btn.prev { left: 6px; }
             .carrossel-btn.next { right: 6px; }
-            .carrossel-legenda {
-                font-size: 11px;
-                padding: 10px;
-            }
+            .carrossel-legenda { font-size: 11px; padding: 10px; }
         }
 
         .descricao-local {
@@ -338,6 +314,9 @@
             display: block;
             border-radius: 50%;
             border: 2px solid var(--secondary);
+            background: var(--white);
+            padding: 2px;
+            flex-shrink: 0;
         }
 
         .footer-logo h3 { font-size: 16px; color: var(--white); }
@@ -368,24 +347,44 @@
 
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .mobile-menu-btn { display: block; }
-            .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
+
+            .header .container {
                 flex-direction: column;
-                padding: 20px;
-                gap: 16px;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                align-items: stretch;
+                gap: 12px;
             }
-            .nav-list.active { display: flex; }
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            .nav-list {
+                display: flex !important;
+                justify-content: center;
+                gap: 12px 16px;
+                flex-wrap: wrap;
+                padding: 8px 0;
+                border-top: 1px solid #e2e8f0;
+                border-bottom: 1px solid #e2e8f0;
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                flex-direction: row;
+            }
+
+            .nav-list a {
+                font-size: 14px;
+                padding: 4px 0;
+            }
+
             .page-header h1 { font-size: 24px; }
             .footer-content { grid-template-columns: 1fr; gap: 32px; }
             .footer-links { grid-template-columns: 1fr; gap: 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-list { gap: 8px 12px; }
+            .nav-list a { font-size: 13px; }
         }
     </style>
 </head>
@@ -403,8 +402,7 @@
                 </div>
             </div>
             <nav class="nav">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <ul class="nav-list" id="navList">
+                <ul class="nav-list">
                     <li><a href="index.html">Início</a></li>
                     <li><a href="atividades.html">Atividades</a></li>
                     <li><a href="testemunhos.html">Testemunhos</a></li>
@@ -420,7 +418,7 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1> Igreja do Nazareno</h1>
+                <h1>Igreja do Nazareno</h1>
                 <a href="locais.html" class="voltar">← Voltar para Locais</a>
             </div>
         </section>
@@ -431,16 +429,16 @@
             <div class="carrossel-wrapper">
                 <div class="carrossel-track" id="carrosselTrack">
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/igreja1.jpeg" alt="Igreja 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Igreja+1'">
-                       
+                        <img src="assets/images/igreja/1.jpeg" alt="Igreja 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Igreja+1'">
+                        <div class="carrossel-legenda">Vista da Igreja</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/igreja2.jpeg" alt="Igreja 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Igreja+2'">
-                       
+                        <img src="assets/images/igreja/2.jpeg" alt="Igreja 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Igreja+2'">
+                        <div class="carrossel-legenda">Interior da Igreja</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/igreja3.jpeg" alt="Igreja 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Igreja+3'">
-                       
+                        <img src="assets/images/igreja/3.jpeg" alt="Igreja 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Igreja+3'">
+                        <div class="carrossel-legenda">Culto de Abertura</div>
                     </div>
                 </div>
             </div>
@@ -448,13 +446,13 @@
         </div>
         <div class="carrossel-indicadores" id="indicadores"></div>
 
-        <!-- Descrição -->
+        <!-- Descricao -->
         <div class="descricao-local">
-            <h2> Sobre a Igreja do Nazareno</h2>
-            <p>A Igreja do Nazareno em Namaacha é o ponto de partida do acampamento. Uma igreja acolhedora que servirá como base para todas as atividades. Aqui realizaremos os cultos, palestras e momentos de comunhão.</p>
-            <p>Este espaço sagrado será o centro das nossas atividades espirituais durante os 5 dias de acampamento. Com uma arquitetura simples mas acolhedora, a igreja oferece um ambiente propício para a adoração e reflexão.</p>
+            <h2>Sobre a Igreja do Nazareno</h2>
+            <p>A Igreja do Nazareno em Namaacha é o ponto de partida do acampamento. Uma igreja acolhedora que servirá como base para todas as atividades. Aqui realizaremos os cultos, palestras e momentos de comunhao.</p>
+            <p>Este espaço sagrado será o centro das nossas atividades espirituais durante os 5 dias de acampamento. Com uma arquitetura simples mas acolhedora, a igreja oferece um ambiente propício para a adoração e reflexao.</p>
             <p>A Igreja do Nazareno tem sido um local de encontro para a comunidade local e visitantes, sendo conhecida pela sua hospitalidade e ambiente de paz.</p>
-            <span class="tag espiritual"> Espiritual</span>
+            <span class="tag espiritual">Espiritual</span>
         </div>
     </main>
 
@@ -469,11 +467,11 @@
                             <p>JNI · Distrito de Maputo</p>
                         </div>
                     </div>
-                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaías 6:8</p>
+                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaias 6:8</p>
                 </div>
                 <div class="footer-links">
                     <div>
-                        <h4>Navegação</h4>
+                        <h4>Navegacao</h4>
                         <ul>
                             <li><a href="index.html">Início</a></li>
                             <li><a href="atividades.html">Atividades</a></li>
@@ -596,19 +594,6 @@
                 });
             }
         })();
-
-        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        var navList = document.getElementById('navList');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                navList.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-list a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navList.classList.remove('active');
-            });
-        });
     </script>
 </body>
 </html>

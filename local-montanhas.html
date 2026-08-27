@@ -90,6 +90,7 @@
             display: flex;
             list-style: none;
             gap: 32px;
+            flex-wrap: wrap;
         }
 
         .nav-list a {
@@ -119,12 +120,7 @@
         .nav-list a.active { color: var(--secondary); }
 
         .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 24px;
-            cursor: pointer;
+            display: none !important;
         }
 
         .page-header {
@@ -165,7 +161,7 @@
             min-width: 100%;
             position: relative;
             flex-shrink: 0;
-            height: 380px; /* Altura fixa e mais compacta */
+            height: 380px;
         }
 
         .carrossel-img {
@@ -245,41 +241,21 @@
 
         /* RESPONSIVIDADE DO CARROSSEL */
         @media (max-width: 1024px) {
-            .carrossel-slide {
-                height: 320px;
-            }
+            .carrossel-slide { height: 320px; }
         }
 
         @media (max-width: 768px) {
-            .carrossel-slide {
-                height: 260px;
-            }
-            .carrossel-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
-            }
-            .carrossel-legenda {
-                font-size: 13px;
-                padding: 12px;
-            }
+            .carrossel-slide { height: 260px; }
+            .carrossel-btn { width: 32px; height: 32px; font-size: 14px; }
+            .carrossel-legenda { font-size: 13px; padding: 12px; }
         }
 
         @media (max-width: 480px) {
-            .carrossel-slide {
-                height: 200px;
-            }
-            .carrossel-btn {
-                width: 28px;
-                height: 28px;
-                font-size: 12px;
-            }
+            .carrossel-slide { height: 200px; }
+            .carrossel-btn { width: 28px; height: 28px; font-size: 12px; }
             .carrossel-btn.prev { left: 6px; }
             .carrossel-btn.next { right: 6px; }
-            .carrossel-legenda {
-                font-size: 11px;
-                padding: 10px;
-            }
+            .carrossel-legenda { font-size: 11px; padding: 10px; }
         }
 
         .descricao-local {
@@ -333,6 +309,9 @@
             display: block;
             border-radius: 50%;
             border: 2px solid var(--secondary);
+            background: var(--white);
+            padding: 2px;
+            flex-shrink: 0;
         }
 
         .footer-logo h3 { font-size: 16px; color: var(--white); }
@@ -363,24 +342,44 @@
 
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .mobile-menu-btn { display: block; }
-            .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
+
+            .header .container {
                 flex-direction: column;
-                padding: 20px;
-                gap: 16px;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                align-items: stretch;
+                gap: 12px;
             }
-            .nav-list.active { display: flex; }
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            .nav-list {
+                display: flex !important;
+                justify-content: center;
+                gap: 12px 16px;
+                flex-wrap: wrap;
+                padding: 8px 0;
+                border-top: 1px solid #e2e8f0;
+                border-bottom: 1px solid #e2e8f0;
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                flex-direction: row;
+            }
+
+            .nav-list a {
+                font-size: 14px;
+                padding: 4px 0;
+            }
+
             .page-header h1 { font-size: 24px; }
             .footer-content { grid-template-columns: 1fr; gap: 32px; }
             .footer-links { grid-template-columns: 1fr; gap: 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-list { gap: 8px 12px; }
+            .nav-list a { font-size: 13px; }
         }
     </style>
 </head>
@@ -398,8 +397,7 @@
                 </div>
             </div>
             <nav class="nav">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <ul class="nav-list" id="navList">
+                <ul class="nav-list">
                     <li><a href="index.html">Início</a></li>
                     <li><a href="atividades.html">Atividades</a></li>
                     <li><a href="testemunhos.html">Testemunhos</a></li>
@@ -415,7 +413,7 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1> Montanhas de Namaacha</h1>
+                <h1>Montanhas de Namaacha</h1>
                 <a href="locais.html" class="voltar">← Voltar para Locais</a>
             </div>
         </section>
@@ -425,20 +423,20 @@
             <div class="carrossel-wrapper">
                 <div class="carrossel-track" id="carrosselTrack">
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/montanhas/1.jpg" alt="Montanhas 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Montanhas+1'">
-                       
+                        <img src="assets/images/montanhas/1.jpeg" alt="Montanhas 1" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Montanhas+1'">
+                        <div class="carrossel-legenda">Vista das Montanhas</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/montanhas/4.jpg" alt="Montanhas 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Montanhas+2'">
-                      
+                        <img src="assets/images/montanhas/2.jpg" alt="Montanhas 2" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Montanhas+2'">
+                        <div class="carrossel-legenda">Paisagem Natural</div>
                     </div>
                     <div class="carrossel-slide">
-                        <img src="assets/images/images/montanhas/2.jpg" alt="Montanhas 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Montanhas+3'">
-                        
+                        <img src="assets/images/montanhas/4.jpeg" alt="Montanhas 4" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Montanhas+4'">
+                        <div class="carrossel-legenda">Monte Mponduine</div>
                     </div>
-                     <div class="carrossel-slide">
-                        <img src="assets/images/images/montanhas/3.jpg" alt="Montanhas 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Montanhas+3'">
-                        
+                    <div class="carrossel-slide">
+                        <img src="assets/images/montanhas/3.jpeg" alt="Montanhas 3" class="carrossel-img" onerror="this.src='https://via.placeholder.com/800x450?text=Montanhas+3'">
+                        <div class="carrossel-legenda">Monte Mponduine</div>
                     </div>
                 </div>
             </div>
@@ -447,10 +445,10 @@
         <div class="carrossel-indicadores" id="indicadores"></div>
 
         <div class="descricao-local">
-            <h2> Sobre as Montanhas de Namaacha</h2>
-            <p>As montanhas de Namaacha são um dos destinos naturais mais encantadores do sul de Moçambique. Situadas na Cordilheira dos Montes Libombos, a cerca de 75 km de Maputo, as montanhas de Namaacha oferecem um clima fresco, paisagens deslumbrantes e um ambiente de tranquilidade.</p>
-            <p>Durante a excursão, terás a oportunidade de admirar o Monte Mponduine, o ponto mais alto da região sul do país, visitar as famosas cascatas de águas cristalinas, e apreciar as colinas. É uma oportunidade única para tirar fotografias inesquecíveis, caminhar em contacto com a natureza e desfrutar de momentos de lazer e convívio.</p>
-            <p>Prepare-se para uma experiência repleta de aventura, beleza natural e boas memórias.</p>
+            <h2>Sobre as Montanhas de Namaacha</h2>
+            <p>As montanhas de Namaacha sao um dos destinos naturais mais encantadores do sul de Mocambique. Situadas na Cordilheira dos Montes Libombos, a cerca de 75 km de Maputo, as montanhas de Namaacha oferecem um clima fresco, paisagens deslumbrantes e um ambiente de tranquilidade.</p>
+            <p>Durante a excursao, teras a oportunidade de admirar o Monte Mponduine, o ponto mais alto da regiao sul do pais, visitar as famosas cascatas de aguas cristalinas, e apreciar as colinas. E uma oportunidade unica para tirar fotografias inesqueciveis, caminhar em contacto com a natureza e desfrutar de momentos de lazer e convivio.</p>
+            <p>Prepare-se para uma experiencia repleta de aventura, beleza natural e boas memorias.</p>
             <span class="tag natureza">Natureza</span>
         </div>
     </main>
@@ -466,11 +464,11 @@
                             <p>JNI · Distrito de Maputo</p>
                         </div>
                     </div>
-                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaías 6:8</p>
+                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaias 6:8</p>
                 </div>
                 <div class="footer-links">
                     <div>
-                        <h4>Navegação</h4>
+                        <h4>Navegacao</h4>
                         <ul>
                             <li><a href="index.html">Início</a></li>
                             <li><a href="atividades.html">Atividades</a></li>
@@ -592,19 +590,6 @@
                 });
             }
         })();
-
-        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        var navList = document.getElementById('navList');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                navList.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-list a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navList.classList.remove('active');
-            });
-        });
     </script>
 </body>
 </html>
