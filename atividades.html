@@ -103,6 +103,7 @@
             display: flex;
             list-style: none;
             gap: 32px;
+            flex-wrap: wrap;
         }
 
         .nav-list a {
@@ -136,12 +137,7 @@
         }
 
         .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 24px;
-            cursor: pointer;
+            display: none !important;
         }
 
         /* PAGE HEADER */
@@ -371,6 +367,9 @@
             display: block;
             border-radius: 50%;
             border: 2px solid var(--secondary);
+            background: var(--white);
+            padding: 2px;
+            flex-shrink: 0;
         }
 
         .footer-logo h3 {
@@ -466,26 +465,33 @@
                 padding: 0 20px;
             }
 
-            .mobile-menu-btn {
-                display: block;
+            .header .container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .logo-area {
+                justify-content: center;
             }
 
             .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                flex-direction: column;
-                padding: 20px;
-                gap: 16px;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                display: flex !important;
+                justify-content: center;
+                gap: 12px 16px;
+                flex-wrap: wrap;
+                padding: 8px 0;
+                border-top: 1px solid #e2e8f0;
+                border-bottom: 1px solid #e2e8f0;
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                flex-direction: row;
             }
 
-            .nav-list.active {
-                display: flex;
+            .nav-list a {
+                font-size: 14px;
+                padding: 4px 0;
             }
 
             .page-header h1 {
@@ -554,6 +560,14 @@
 
             .page-header p {
                 font-size: 15px;
+            }
+
+            .nav-list {
+                gap: 8px 12px;
+            }
+
+            .nav-list a {
+                font-size: 13px;
             }
 
             .pacote-header-unico {
@@ -625,8 +639,8 @@
                 </div>
             </div>
             <nav class="nav">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <ul class="nav-list" id="navList">
+                <!-- Botão hambúrguer removido – menu sempre visível -->
+                <ul class="nav-list">
                     <li><a href="index.html">Início</a></li>
                     <li><a href="atividades.html" class="active">Atividades</a></li>
                     <li><a href="testemunhos.html">Testemunhos</a></li>
@@ -738,7 +752,7 @@
                         </div>
                     </div>
                     <div class="pacote-footer-unico">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSedmgruWlNIRG6CJU8pDtyra262b3qR7rtpmZBelzVdYHj6nA/viewform?usp=dialog" target="_blank" class="btn-inscrever-unico"> Inscrever-me Agora</a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSedmgruWlNIRG6CJU8pDtyra262b3qR7rtpmZBelzVdYHj6nA/viewform?usp=dialog" target="_blank" class="btn-inscrever-unico">Inscrever-me Agora</a>
                     </div>
                 </div>
             </div>
@@ -804,23 +818,6 @@
     </footer>
 
     <script>
-        // Menu Mobile
-        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        var navList = document.getElementById('navList');
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                navList.classList.toggle('active');
-            });
-        }
-
-        var navLinks = document.querySelectorAll('.nav-list a');
-        for (var i = 0; i < navLinks.length; i++) {
-            navLinks[i].addEventListener('click', function() {
-                navList.classList.remove('active');
-            });
-        }
-
         // Animações
         var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
         var observer = new IntersectionObserver(function(entries) {
