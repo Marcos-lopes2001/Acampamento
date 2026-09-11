@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estrutura - Acampamento RHUMA MINA 2026</title>
+    <title>Sobre & Estrutura - Acampamento RHUMA MINA 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* ============================================
-           ESTRUTURA - ACAMPAMENTO RHUMA MINA
-           CORES: VERDE #3ebd76 | AMARELO #ffae49
-           ============================================ */
         :root {
             --primary: #3ebd76;
             --primary-dark: #2d9d5e;
@@ -159,9 +155,107 @@
             font-size: 18px;
         }
 
+        /* SOBRE */
+        .sobre-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .sobre-texto h2 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .sobre-texto p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .sobre-texto blockquote {
+            font-size: 20px;
+            font-style: italic;
+            color: var(--primary);
+            padding: 20px 24px;
+            border-left: 4px solid var(--secondary);
+            background: var(--primary-bg);
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .sobre-imagem {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-destaque-sobre {
+            background: var(--primary-bg);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(62, 189, 118, 0.2);
+            transition: all 0.3s;
+        }
+
+        .card-destaque-sobre:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--secondary);
+        }
+
+        .numero-destaque {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--secondary);
+            display: block;
+            line-height: 1;
+        }
+
+        .card-destaque-sobre p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
         /* ESTRUTURA */
-        .estrutura-page {
-            padding: 40px 0 60px;
+        .estrutura-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            margin-top: 8px;
         }
 
         .coordenacao {
@@ -170,7 +264,7 @@
             padding: 30px;
             border-radius: 16px;
             text-align: center;
-            margin-top: 30px;
+            margin-bottom: 30px;
         }
 
         .coordenacao h3 {
@@ -187,7 +281,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
-            margin-top: 30px;
         }
 
         .comissao-card {
@@ -209,23 +302,42 @@
         .comissao-card h3 {
             font-size: 18px;
             color: var(--text-dark);
-            margin-bottom: 4px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-bg);
         }
 
-        .comissao-card p {
-            font-size: 13px;
-            color: var(--text-light);
-        }
-
-        .comissao-card .responsavel {
-            display: inline-block;
+        .comissao-card .membro {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 8px;
             background: var(--primary-bg);
+        }
+
+        .comissao-card .membro:last-child {
+            margin-bottom: 0;
+        }
+
+        .comissao-card .cargo {
+            font-size: 11px;
+            font-weight: 700;
             color: var(--secondary);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .comissao-card .nome {
+            font-size: 15px;
             font-weight: 600;
-            margin-top: 8px;
+            color: var(--text-dark);
+        }
+
+        .comissao-card .telefone {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 600;
         }
 
         /* FOOTER */
@@ -332,6 +444,13 @@
             opacity: 1 !important;
         }
 
+        .footer-bottom .dev {
+            margin-top: 10px;
+            font-size: 12px;
+            opacity: 0.5;
+            color: #a0aec0;
+        }
+
         /* ANIMAÇÕES */
         .fade-up {
             opacity: 0;
@@ -344,6 +463,28 @@
             transform: translateY(0);
         }
 
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
@@ -352,6 +493,12 @@
         .delay-6 { transition-delay: 0.6s; }
 
         /* RESPONSIVO */
+        @media (max-width: 1024px) {
+            .comissao-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
@@ -386,12 +533,19 @@
                 padding: 4px 0;
             }
 
-            .comissao-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .page-header h1 {
                 font-size: 28px;
+            }
+
+            .sobre-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .sobre-imagem {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
             }
 
             .footer-content {
@@ -403,17 +557,17 @@
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
-        }
 
-        @media (max-width: 480px) {
             .comissao-grid {
                 grid-template-columns: 1fr;
             }
 
-            .page-header h1 {
-                font-size: 24px;
+            .coordenacao h3 {
+                font-size: 20px;
             }
+        }
 
+        @media (max-width: 480px) {
             .nav-list {
                 gap: 8px 12px;
             }
@@ -422,8 +576,16 @@
                 font-size: 13px;
             }
 
-            .coordenacao h3 {
-                font-size: 20px;
+            .page-header h1 {
+                font-size: 24px;
+            }
+
+            .sobre-texto h2 {
+                font-size: 24px;
+            }
+
+            .sobre-imagem {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -445,10 +607,9 @@
                 <ul class="nav-list">
                     <li><a href="index.html">Início</a></li>
                     <li><a href="atividades.html">Atividades</a></li>
+                     <li><a href="locais.html">Locais</a></li>
                     <li><a href="testemunhos.html">Testemunhos</a></li>
-                    <li><a href="locais.html">Locais</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="estrutura.html" class="active">Estrutura</a></li>
+                    <li><a href="sobre.html" class="active">Sobre & Estrutura</a></li>
                     <li><a href="contactos.html">Contactos</a></li>
                 </ul>
             </nav>
@@ -458,54 +619,128 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1>Estrutura Organizacional</h1>
-                <p>Conheça as comissoes que fazem o acampamento acontecer</p>
+                <h1>Sobre & Estrutura</h1>
+                <p>Conheça a história e a organização do Acampamento RHUMA MINA</p>
             </div>
         </section>
 
-        <section class="estrutura-page">
+        <!-- SOBRE -->
+        <section class="sobre-section">
             <div class="container">
+                <div class="sobre-grid">
+                    <div class="sobre-texto fade-left">
+                        <span class="section-tag">Contextualização</span>
+                        <h2>O que é o Acampamento RHUMA MINA?</h2>
+                        <p>O <strong>Acampamento Distrital da Juventude de Maputo</strong> é um evento anual que reúne jovens do distrito para um momento de <strong>transformação espiritual, crescimento pessoal e comunhão</strong>.</p>
+                        <p>O tema <strong>"RHUMA MINA"</strong> representa a disponibilidade diante de Deus, o chamado ao serviço e a entrega total da juventude para a obra do Senhor.</p>
+                        <blockquote>"RHUMA MINA" — Eis-me aqui, envia-me a mim.</blockquote>
+                        <p>Este acampamento será um espaço de <strong>transformação espiritual profunda</strong>, onde os jovens serão desafiados a assumir o seu papel na igreja e na sociedade.</p>
+                    </div>
+                    <div class="sobre-imagem fade-right">
+                        <div class="card-destaque-sobre">
+                            <span class="numero-destaque">5</span>
+                            <p>Dias de Acampamento</p>
+                        </div>
+                        <div class="card-destaque-sobre">
+                            <span class="numero-destaque">6</span>
+                            <p>Comissões Organizacionais</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTRUTURA -->
+        <section class="estrutura-section">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <span class="section-tag">Equipa</span>
+                    <h2>Estrutura Organizacional</h2>
+                    <p>Conheça as comissões que fazem o acampamento acontecer</p>
+                </div>
+
                 <div class="coordenacao fade-up">
-                    <h3>Coordenacao Geral</h3>
-                    <p>Responsavel por coordenar todas as atividades e comissoes do acampamento</p>
+                    <h3>Coordenação Geral</h3>
+                    <p>Responsável por coordenar todas as atividades e comissões do acampamento</p>
                 </div>
 
                 <div class="comissao-grid">
+
+                    <!-- Evangelismo -->
                     <div class="comissao-card fade-up">
-                        <h3>Comissao de Evangelismo</h3>
-                        <p>Responsavel pelas atividades evangelisticas e alcance de almas</p>
-                        <span class="responsavel">Responsavel: A definir</span>
+                        <h3>Evangelismo</h3>
+                        <div class="membro">
+                            <span class="cargo">Coordenador</span>
+                            <span class="nome">Ezequiel Manjate</span>
+                            <span class="telefone">84 542 8172</span>
+                        </div>
+                        <div class="membro">
+                            <span class="cargo">Vice-coordenador</span>
+                            <span class="nome">Adriano Sitoe</span>
+                            <span class="telefone">84 838 5302</span>
+                        </div>
                     </div>
 
+                    <!-- Finanças -->
                     <div class="comissao-card fade-up delay-1">
-                        <h3>Comissao de Logistica</h3>
-                        <p>Responsavel pelo transporte, montagem e organizacao do espaco</p>
-                        <span class="responsavel">Responsavel: A definir</span>
+                        <h3>Finanças</h3>
+                        <div class="membro">
+                            <span class="cargo">Coordenadora</span>
+                            <span class="nome">Cintya Zita</span>
+                            <span class="telefone">86 611 8323</span>
+                        </div>
+                        <div class="membro">
+                            <span class="cargo">Vice-coordenadora</span>
+                            <span class="nome">Awita Mahanjane</span>
+                            <span class="telefone">83 318 8649</span>
+                        </div>
                     </div>
 
+                    <!-- Festas -->
                     <div class="comissao-card fade-up delay-2">
-                        <h3>Comissao de Alimentacao</h3>
-                        <p>Responsavel pelo planeamento e preparacao das refeicoes</p>
-                        <span class="responsavel">Responsavel: A definir</span>
+                        <h3>Festas</h3>
+                        <div class="membro">
+                            <span class="cargo">Coordenadora</span>
+                            <span class="nome">Adelaide Tembe</span>
+                            <span class="telefone">87 899 8428</span>
+                        </div>
+                        <div class="membro">
+                            <span class="cargo">Vice-coordenadora</span>
+                            <span class="nome">Clesia Mondlane</span>
+                            <span class="telefone">87 892 5791</span>
+                        </div>
                     </div>
 
+                    <!-- Acampamento -->
                     <div class="comissao-card fade-up delay-3">
-                        <h3>Comissao de Seguranca</h3>
-                        <p>Responsavel pela seguranca e bem-estar dos participantes</p>
-                        <span class="responsavel">Responsavel: A definir</span>
+                        <h3>Acampamento</h3>
+                        <div class="membro">
+                            <span class="cargo">Coordenador</span>
+                            <span class="nome">Arlindo Cumbane</span>
+                            <span class="telefone">87 513 9380</span>
+                        </div>
+                        <div class="membro">
+                            <span class="cargo">Vice-coordenador</span>
+                            <span class="nome">Almeida Tovo</span>
+                            <span class="telefone">84 918 0251</span>
+                        </div>
                     </div>
 
+                    <!-- CCI -->
                     <div class="comissao-card fade-up delay-4">
-                        <h3>Comissao de Financas</h3>
-                        <p>Responsavel pela gestao financeira e captacao de recursos</p>
-                        <span class="responsavel">Responsavel: A definir</span>
+                        <h3>CCI</h3>
+                        <div class="membro">
+                            <span class="cargo">Coordenador</span>
+                            <span class="nome">Domingos Mazive Jr.</span>
+                            <span class="telefone">84 897 3352</span>
+                        </div>
+                        <div class="membro">
+                            <span class="cargo">Vice-coordenador</span>
+                            <span class="nome">Milton Novela</span>
+                            <span class="telefone">84 038 4215</span>
+                        </div>
                     </div>
 
-                    <div class="comissao-card fade-up delay-5">
-                        <h3>Comissao de Comunicacao</h3>
-                        <p>Responsavel pela divulgacao, redes sociais e registo fotografico</p>
-                        <span class="responsavel">Responsavel: A definir</span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -522,21 +757,17 @@
                             <p>JNI · Distrito de Maputo</p>
                         </div>
                     </div>
-                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaias 6:8</p>
+                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaías 6:8</p>
                 </div>
                 <div class="footer-links">
                     <div>
-                        <h4>Navegacao</h4>
+                        <h4>Navegação</h4>
                         <ul>
                             <li><a href="index.html">Início</a></li>
-                            <li><a href="sobre.html">Sobre</a></li>
-                            <li><a href="estrutura.html">Estrutura</a></li>
+                            <li><a href="sobre.html">Sobre & Estrutura</a></li>
+                            <li><a href="atividades.html">Atividades</a></li>
+                            <li><a href="testemunhos.html">Testemunhos</a></li>
                             <li><a href="contactos.html">Contactos</a></li>
-                        </ul>
-                        <h4>Redes Sociais</h4>
-                        <ul>
-                            <li><a href="https://www.instagram.com/jni_distrito_de_maputo?igsh=MW4zZWUwYmVlNW1xcA==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="https://www.facebook.com/share/19KG9htsmF/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         </ul>
                     </div>
                     <div>
@@ -555,23 +786,23 @@
                             <li>Edson Cau: 84 513 2991</li>
                             <li>Lourino Langa: 86 260 0363</li>
                         </ul>
+                        <h4>Redes Sociais</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/jni_distrito_de_maputo?igsh=MW4zZWUwYmVlNW1xcA==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/share/19KG9htsmF/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>© 2026 Acampamento RHUMA MINA · JNI Distrito de Maputo</p>
                 <p class="lema-footer">"Eis-me aqui, envia-me a mim"</p>
-                <p style="margin-top: 10px; font-size: 12px; opacity: 0.5; color: #a0aec0;">
-                    Desenvolvido por Marcos Lopes
-                </p>
+                <p class="dev">Desenvolvido por Marcos Lopes</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Removido o codigo do menu mobile (toggle) pois nao ha mais botao hamburguer
-
-        // Animacoes
         var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -580,8 +811,7 @@
                 }
             });
         }, observerOptions);
-
-        document.querySelectorAll('.fade-up').forEach(function(el) {
+        document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(function(el) {
             observer.observe(el);
         });
     </script>
