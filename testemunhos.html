@@ -170,7 +170,7 @@
 
         .testemunhos-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin-bottom: 60px;
         }
@@ -178,11 +178,11 @@
         .testemunho-card {
             background: var(--white);
             border-radius: 16px;
-            padding: 24px;
+            padding: 28px;
             box-shadow: var(--shadow);
             border: 1px solid #e2e8f0;
             transition: all 0.3s;
-            text-align: center;
+            text-align: left;
         }
 
         .testemunho-card:hover {
@@ -192,15 +192,15 @@
         }
 
         .testemunho-card .foto {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background: var(--primary-bg);
-            margin: 0 auto 12px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 30px;
             border: 3px solid var(--secondary);
         }
 
@@ -219,8 +219,9 @@
         .testemunho-card .texto {
             font-size: 14px;
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.7;
             font-style: italic;
+            margin-bottom: 12px;
         }
 
         .testemunho-card .texto::before {
@@ -235,7 +236,38 @@
             color: var(--secondary);
         }
 
-        .testemunho-card .estrelas {
+        .testemunho-card .frase-resumo {
+            font-size: 14px;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: var(--primary-bg);
+            border-radius: 8px;
+        }
+
+        .testemunho-card .seccao {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .testemunho-card .seccao h4 {
+            font-size: 13px;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .testemunho-card .seccao p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .estrelas {
             color: var(--secondary);
             font-size: 18px;
             margin-top: 10px;
@@ -373,7 +405,7 @@
         /* RESPONSIVO */
         @media (max-width: 1024px) {
             .testemunhos-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
         }
 
@@ -446,6 +478,10 @@
             .categoria-titulo {
                 font-size: 22px;
             }
+
+            .testemunho-card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -480,87 +516,161 @@
         <section class="page-header">
             <div class="container">
                 <h1>Testemunhos</h1>
-                <p>O que os participantes e oradores dizem sobre o Acampamento RHUMA MINA</p>
+                <p>O que os participantes dizem sobre o Acampamento SEKELEKA UFAMBA</p>
             </div>
         </section>
 
         <section class="testemunhos-section">
             <div class="container">
-                <!-- Testemunhos dos Participantes -->
                 <h2 class="categoria-titulo">Testemunhos dos Participantes</h2>
                 <div class="testemunhos-grid">
+
+                    <!-- Adelaide da Graça Efraim Tembe -->
                     <div class="testemunho-card fade-up">
                         <div class="foto">👤</div>
-                        <div class="nome">Ana Maria dos Santos</div>
-                        <div class="cargo">Participante · JNI Maputo Central</div>
-                        <div class="texto">O Acampamento RHUMA MINA mudou a minha vida. Foi la que Deus falou comigo e eu decidi responder "Eis-me aqui". As palestras e os momentos de oracao foram transformadores.</div>
-                        <div class="estrelas">★★★★★</div>
+                        <div class="nome">Adelaide da Graça Efraim Tembe</div>
+                        <div class="cargo">Igreja do Nazareno Maputo - Cidade</div>
+                        <div class="texto">A minha experiência no SEKELEKA UFAMBA foi verdadeiramente marcante e transformadora. Foi muito mais do que participar de um acampamento; foi viver momentos que fortaleceram a minha fé e me aproximaram ainda mais de Deus.</div>
+                        <div class="frase-resumo">Foi o lugar onde Deus me fez olhar para dentro, aproximar-me d'Ele e compreender um pouco mais sobre o propósito pelo qual me levantou nesta geração.</div>
+                        <div class="seccao">
+                            <h4>O que mais marcou</h4>
+                            <p>O conjunto dos momentos de oração, louvor, partilha e as rodas que fazíamos diariamente. Senti Deus falar profundamente comigo.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Contributo espiritual e social</h4>
+                            <p>Ajudou-me a aproximar-me mais de Deus, a fortalecer a minha fé e a construir amizades que jamais imaginaria.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Expectativas para o RHUMA MINA</h4>
+                            <p>Espero que seja ainda mais profundo e transformador. Quero viver momentos genuínos na presença de Deus e crescer espiritualmente.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Por que recomenda</h4>
+                            <p>É uma oportunidade de parar, afastar-se das distrações, aproximar-se de Deus e descobrir o propósito que Ele tem para a sua vida.</p>
+                        </div>
                     </div>
 
+                    <!-- Jorge Vaz -->
                     <div class="testemunho-card fade-up delay-1">
                         <div class="foto">👤</div>
-                        <div class="nome">Carlos Joao Macie</div>
-                        <div class="cargo">Participante · JNI Mavalane</div>
-                        <div class="texto">A comunhao com outros jovens, os estudos biblicos e a visita as montanhas foram experiencias unicas. Voltei para casa com uma nova visao sobre o meu proposito.</div>
-                        <div class="estrelas">★★★★★</div>
+                        <div class="nome">Jorge Vaz</div>
+                        <div class="cargo">Mumemo</div>
+                        <div class="texto">Muito bom. Um dos momentos que mais me marcou durante o Acampamento foi, sem dúvidas, a Noite da Fogueira. Mais do que um simples momento de convivência, foi uma oportunidade de conhecer um pouco mais das histórias dos irmãos e irmãs.</div>
+                        <div class="frase-resumo">Já estou renovado e rumo à jornada cristã.</div>
+                        <div class="seccao">
+                            <h4>O que mais marcou</h4>
+                            <p>A Noite da Fogueira, onde ouvi testemunhos e percebi que cada pessoa carrega consigo uma história e uma batalha.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Contributo espiritual e social</h4>
+                            <p>Espiritualmente edifiquei-me através dos estudos e pregações. Socialmente conheci irmãos incríveis que até hoje trocamos conversas produtivas.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Expectativas para o RHUMA MINA</h4>
+                            <p>Espero fortalecer-me ainda na fé e criar intercâmbio com os jovens presentes no acampamento.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Por que recomenda</h4>
+                            <p>Porque cada momento no acampamento é uma maravilha e fortalecemos cada vez mais quando estamos unidos.</p>
+                        </div>
                     </div>
 
+                    <!-- Jalilo Ambasse -->
                     <div class="testemunho-card fade-up delay-2">
                         <div class="foto">👤</div>
-                        <div class="nome">Maria Luisa Nhantumbo</div>
-                        <div class="cargo">Participante · JNI Laulane</div>
-                        <div class="texto">Eu nunca tinha participado de um acampamento antes. Foi uma experiencia incrivel! Aprendi muito sobre lideranca e fiz amizades que levarei para a vida toda.</div>
-                        <div class="estrelas">★★★★★</div>
+                        <div class="nome">Jalilo Ambasse</div>
+                        <div class="cargo">Igreja do Nazareno Costa do Sol</div>
+                        <div class="texto">Foi uma experiência incrível e muito abençoada! O momento que mais me marcou foi o evangelismo. Presenciei algo muito marcante: entramos na casa de uma família que passava por dificuldades financeiras extremas, mas mesmo assim pararam os seus afazeres para ouvir a palavra de Deus.</div>
+                        <div class="frase-resumo">SEKELEKA UFAMBA KANIMABO, A NGA KONA WA KU FANA NA YESU.</div>
+                        <div class="seccao">
+                            <h4>O que mais marcou</h4>
+                            <p>O evangelismo, onde sentimos a necessidade de ajudar a família não só com a palavra, mas também com algo para comer. O evangelho não se trata somente de falar de Jesus, mas também de mostrar e dar o amor de Jesus.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Contributo espiritual e social</h4>
+                            <p>O acampamento contribuiu de uma forma muito forte para a minha vida espiritual e social.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Expectativas para o RHUMA MINA</h4>
+                            <p>Conviver com a comunidade e testemunhar as maravilhas de Deus. Que não seja nenhum passeio, mas sim uma experiência única.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Por que recomenda</h4>
+                            <p>Será um acampamento incrível e abençoado. Vamos adorar, louvar, dançar, aprender, falar com Deus e muito mais!</p>
+                        </div>
                     </div>
 
+                    <!-- Eugénio Macuácua -->
                     <div class="testemunho-card fade-up delay-3">
                         <div class="foto">👤</div>
-                        <div class="nome">Pedro Joao Tembe</div>
-                        <div class="cargo">Participante · JNI Albazine</div>
-                        <div class="texto">O acampamento me ensinou a importancia de servir. A visita as cascatas e os momentos de oracao em grupo me fizeram sentir mais perto de Deus.</div>
-                        <div class="estrelas">★★★★★</div>
+                        <div class="nome">Eugénio Macuácua</div>
+                        <div class="cargo">Laulane</div>
+                        <div class="texto">Maravilhosa, relaxante, comunhão com os irmãos e troca de experiências.</div>
+                        <div class="frase-resumo">Restart da fé e da caminhada.</div>
+                        <div class="seccao">
+                            <h4>O que mais marcou</h4>
+                            <p>A conversa na fogueira com muita troca de experiências, os jogos aleatórios com irmãos e arrancar frutas.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Contributo espiritual e social</h4>
+                            <p>Solidifiquei conhecimentos envolvidos na área económica e sentimental.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Expectativas para o RHUMA MINA</h4>
+                            <p>Não muito boas por ser um lugar perto. Tenho receio de muitas indisciplinas, dado que não teremos o mesmo isolamento geográfico que em Gaza.</p>
+                        </div>
                     </div>
 
+                    <!-- Madina Maulide -->
                     <div class="testemunho-card fade-up delay-4">
                         <div class="foto">👤</div>
-                        <div class="nome">Helena Fatima Cossa</div>
-                        <div class="cargo">Participante · JNI Magoanine</div>
-                        <div class="texto">Foi um dos melhores momentos da minha vida! O acampamento me ajudou a encontrar meu proposito e a entender que Deus tem um plano para mim.</div>
-                        <div class="estrelas">★★★★★</div>
+                        <div class="nome">Madina Maulide</div>
+                        <div class="cargo">Igreja do Nazareno Km-12</div>
+                        <div class="texto">A minha experiência no SEKELEKA UFAMBA foi uma maravilha! Uma grande bênção na verdade. Se pudesse, voltaria para lá.</div>
+                        <div class="frase-resumo">Uma bênção!</div>
+                        <div class="seccao">
+                            <h4>O que mais marcou</h4>
+                            <p>Os debates, principalmente a conversa que as mulheres tiveram com o pastor Eduardo Nhanchote. Pude aprender muito com os conselhos e ensinamentos que ele deu.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Contributo espiritual e social</h4>
+                            <p>Contribuiu muito na minha vida social. Antes do acampamento eu era muito mais reservada e não gostava de fazer amizades. Também fortaleceu muito a minha relação com Deus.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Expectativas para o RHUMA MINA</h4>
+                            <p>As minhas expectativas são enormes e espero que supere o SEKELEKA UFAMBA. Não vejo a hora de chegar!</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Por que recomenda</h4>
+                            <p>Porque é onde os jovens aprendemos sobre Deus, aprendemos com o testemunho de outros jovens, sobre a igreja do nazareno e muita alegria e descontração.</p>
+                        </div>
                     </div>
 
+                    <!-- Ázer da Glória -->
                     <div class="testemunho-card fade-up delay-5">
                         <div class="foto">👤</div>
-                        <div class="nome">Joao Carlos Bila</div>
-                        <div class="cargo">Participante · JNI Costa do Sol</div>
-                        <div class="texto">RHUMA MINA nao e apenas um acampamento, e uma experiencia de transformacao. As palestras e os cultos me tocaram profundamente.</div>
-                        <div class="estrelas">★★★★★</div>
-                    </div>
-                </div>
-
-                <!-- Testemunhos dos Oradores -->
-                <h2 class="categoria-titulo">Testemunhos dos Oradores</h2>
-                <div class="testemunhos-grid">
-                    <div class="testemunho-card fade-up">
-                        <div class="foto">👤</div>
-                        <div class="nome">Pastor Salomao Tivane</div>
-                        <div class="cargo">Orador · Pregacao</div>
-                        <div class="texto">Ver a juventude tao comprometida com a obra de Deus e inspirador. O tema "Eis-me aqui" ressoou no coracao de cada jovem presente.</div>
-                    </div>
-
-                    <div class="testemunho-card fade-up delay-1">
-                        <div class="foto">👤</div>
-                        <div class="nome">Reva. Filsia Inguane</div>
-                        <div class="cargo">Oradora · Avante Jovem</div>
-                        <div class="texto">O acampamento RHUMA MINA e um dos mais bem organizados que ja participei. A energia e a disposicao dos jovens em servir a Deus e contagiante.</div>
+                        <div class="nome">Ázer da Glória</div>
+                        <div class="cargo">Maputo Central</div>
+                        <div class="texto">Foi uma experiência marcante. O momento que tivemos com o pastor Tivane foi muito especial.</div>
+                        <div class="frase-resumo">Essas saídas são momentos únicos e diferentes.</div>
+                        <div class="seccao">
+                            <h4>O que mais marcou</h4>
+                            <p>O momento que tivemos com o pastor Tivane.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Contributo espiritual e social</h4>
+                            <p>Contribuiu de várias formas, indicando os estados.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Expectativas para o RHUMA MINA</h4>
+                            <p>Temas sem tabus. Estudos que vão acrescentar na vida de cada jovem, incentivar o jovem a estudar, trabalhar, empreender, etc.</p>
+                        </div>
+                        <div class="seccao">
+                            <h4>Por que recomenda</h4>
+                            <p>Além do crescimento espiritual, ajudará cada um a descobrir o seu potencial. Será bom que cada jovem saiba que não é o único a passar por batalhas e dificuldades da vida.</p>
+                        </div>
                     </div>
 
-                    <div class="testemunho-card fade-up delay-2">
-                        <div class="foto">👤</div>
-                        <div class="nome">Superintendente Eduardo Macamo</div>
-                        <div class="cargo">Orador · Palavra Inicial</div>
-                        <div class="texto">E gratificante ver a juventude nazarena unida em torno de um proposito maior. Este acampamento e um marco na historia da nossa igreja.</div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -577,11 +687,11 @@
                             <p>JNI · Distrito de Maputo</p>
                         </div>
                     </div>
-                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaias 6:8</p>
+                    <p class="footer-desc">"Eis-me aqui, envia-me a mim" — Isaías 6:8</p>
                 </div>
                 <div class="footer-links">
                     <div>
-                        <h4>Navegacao</h4>
+                        <h4>Navegação</h4>
                         <ul>
                             <li><a href="index.html">Início</a></li>
                             <li><a href="sobre.html">Sobre</a></li>
@@ -624,8 +734,6 @@
     </footer>
 
     <script>
-        // Removido o codigo do menu mobile (toggle) pois nao ha mais botao hamburguer
-
         var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
